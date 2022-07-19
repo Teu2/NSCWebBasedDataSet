@@ -16,6 +16,7 @@ body{
     width: 100%;
     background: #E5E7EB;
     position: relative;
+    display: flex;
 
     #side_menu{
         background: linear-gradient(#001E30, #009FFF);
@@ -62,11 +63,39 @@ body{
                         transition: 0.3s ease;
 
                         &:hover{
-                            background-color: red;
                             cursor: pointer;
                             transform: translate(5px, 0);
                         }
                     }
+                }
+            }
+        }
+    }
+
+    #interface{
+        width: calc(100% - 300px);
+        
+
+        .search_top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+
+            .left{
+
+                .search{
+
+                    img{
+                        width: 20px;
+                    }
+                }
+            }
+
+            .right_logo{
+
+                img{
+                    width: 95px;
                 }
             }
         }

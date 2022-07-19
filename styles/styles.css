@@ -14,6 +14,7 @@ body {
   width: 100%;
   background: #E5E7EB;
   position: relative;
+  display: flex;
 }
 body #side_menu {
   background: linear-gradient(#001E30, #009FFF);
@@ -53,9 +54,23 @@ body #side_menu .navigation ul li a {
   transition: 0.3s ease;
 }
 body #side_menu .navigation ul li a:hover {
-  background-color: red;
   cursor: pointer;
   transform: translate(5px, 0);
+}
+body #interface {
+  width: calc(100% - 300px);
+}
+body #interface .search_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+body #interface .search_top .left .search img {
+  width: 20px;
+}
+body #interface .search_top .right_logo img {
+  width: 95px;
 }
 body .bug_logo {
   display: flex;
