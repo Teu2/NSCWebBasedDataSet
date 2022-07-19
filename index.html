@@ -6,9 +6,10 @@
     <title>NSC Labs Web Based Dataset</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
     <body>
-        <section id="side_menu">
+        <section id="side_menu" data-aos="fade-right" data-aos-duration="700">
             <div class="bug_logo">
                 <img src="images/Bug Hosting.png" alt="bug logo">
                 <h2>NSC Dataset</h2>
@@ -22,7 +23,7 @@
             </div>
         </section>
 
-        <section id="interface">
+        <section id="interface" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
             <div class="search_top"> <!--navigation-->
                 <div class="left"> <!-- n1 -->
                     <div class="search">
@@ -36,5 +37,11 @@
                 </div>
             </div>
         </section>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
     </body>
 </html>

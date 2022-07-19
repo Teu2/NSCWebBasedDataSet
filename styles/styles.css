@@ -8,6 +8,7 @@
 
 :root {
   --nav-color: #DEDEDE;
+  --about-font-color: #6D6D6D;
 }
 
 body {
@@ -89,6 +90,26 @@ body #interface .search_top .left .search img {
 }
 body #interface .search_top .right_logo img {
   width: 95px;
+}
+body #about_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--about-font-color);
+  font-size: 14px;
+}
+body #about_section h2 {
+  padding-bottom: 8px;
+}
+body #about_section .left_text {
+  width: 600px;
+  padding-left: 80px;
+}
+body #about_section .right_vector {
+  padding-left: 90px;
+}
+body #about_section .right_vector img {
+  width: 900px;
 }
 body .bug_logo {
   display: flex;
