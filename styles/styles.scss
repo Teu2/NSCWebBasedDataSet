@@ -74,17 +74,32 @@ body{
 
     #interface{
         width: calc(100% - 300px);
-        
 
         .search_top{
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: white;
+            padding: 0 30px;
+            border-bottom: 4px solid transparent;
+            border-image: linear-gradient(0.25turn, #001E30, #009FFF);
+            border-image-slice: 1;
+            width:100%;
 
             .left{
 
-                .search{
+                .search{ // search bar formatting
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 8px 14px;
+                    border: 1px solid;
+
+                    input{
+                        border: none;
+                        outline: none;
+                        margin-left: 10px;
+                    }
 
                     img{
                         width: 20px;

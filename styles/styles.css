@@ -65,6 +65,24 @@ body #interface .search_top {
   justify-content: space-between;
   align-items: center;
   background-color: white;
+  padding: 0 30px;
+  border-bottom: 4px solid transparent;
+  -o-border-image: linear-gradient(0.25turn, #001E30, #009FFF);
+     border-image: linear-gradient(0.25turn, #001E30, #009FFF);
+  border-image-slice: 1;
+  width: 100%;
+}
+body #interface .search_top .left .search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px solid;
+}
+body #interface .search_top .left .search input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
 }
 body #interface .search_top .left .search img {
   width: 20px;
