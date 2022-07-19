@@ -6,8 +6,64 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --nav-color: #DEDEDE;
+}
+
 body {
   width: 100%;
   background: #E5E7EB;
   position: relative;
+}
+body #side_menu {
+  background: linear-gradient(#001E30, #009FFF);
+  width: 300px;
+  height: 100%;
+}
+body #side_menu .navigation ul {
+  margin-top: 40px;
+}
+body #side_menu .navigation ul li {
+  list-style-type: none;
+  padding: 15px 0;
+  width: 100%;
+  transition: 0.3s ease;
+}
+body #side_menu .navigation ul li:hover {
+  background-color: #001E30;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+body #side_menu .navigation ul li:nth-child(1) {
+  border-left: 4px solid white;
+}
+body #side_menu .navigation ul li img {
+  width: 19px;
+  margin-right: 30px;
+}
+body #side_menu .navigation ul li a {
+  text-decoration: none;
+  color: var(--nav-color);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 17px;
+  text-align: center;
+  margin: 0 10px 0 25px;
+  transition: 0.3s ease;
+}
+body #side_menu .navigation ul li a:hover {
+  background-color: red;
+  cursor: pointer;
+  transform: translate(5px, 0);
+}
+body .bug_logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 30px 0 0 22px;
+}
+body .bug_logo img {
+  width: 85px;
+  margin-right: 10px;
 }/*# sourceMappingURL=styles.css.map */
