@@ -52,7 +52,7 @@ body #side_menu .navigation ul li .nav_hover {
   transition: 0.3s ease;
 }
 body #side_menu .navigation ul li .nav_hover:hover {
-  transform: translate(5px, 0);
+  transform: translate(9px, 0);
 }
 body #side_menu .navigation ul li img {
   width: 19px;
