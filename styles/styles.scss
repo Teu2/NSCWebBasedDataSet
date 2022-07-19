@@ -124,6 +124,8 @@ body{
         align-items: center;
         color: var(--about-font-color);
         font-size: 14px;
+        width: calc(100% - 300px);
+        
         h2{
             padding-bottom: 8px;
         }
