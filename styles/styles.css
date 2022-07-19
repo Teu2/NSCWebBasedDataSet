@@ -16,6 +16,7 @@ body {
   background: #E5E7EB;
   position: relative;
   display: flex;
+  overflow-x: hidden;
 }
 body #side_menu {
   background: linear-gradient(#001E30, #009FFF);
