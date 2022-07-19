@@ -9,11 +9,17 @@
 :root {
   --nav-color: #DEDEDE;
   --about-font-color: #6D6D6D;
+  --background-color: #f1f5fb;
+  --temp-color: #E5E7EB;
+}
+
+.current li {
+  border-left: 4px solid white;
 }
 
 body {
   width: 100%;
-  background: #E5E7EB;
+  background: var(--background-color);
   position: relative;
   display: flex;
   overflow-x: hidden;
@@ -22,23 +28,22 @@ body #side_menu {
   background: linear-gradient(#001E30, #009FFF);
   width: 300px;
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 body #side_menu .navigation ul {
   margin-top: 40px;
 }
 body #side_menu .navigation ul li {
   list-style-type: none;
-  padding: 15px 0;
+  padding: 20px 0;
   width: 100%;
   transition: 0.3s ease;
 }
 body #side_menu .navigation ul li:hover {
-  background-color: #001E30;
   cursor: pointer;
-  transition: 0.3s ease;
-}
-body #side_menu .navigation ul li:nth-child(1) {
-  border-left: 4px solid white;
+  transform: translate(5px, 0);
 }
 body #side_menu .navigation ul li img {
   width: 19px;
@@ -61,6 +66,8 @@ body #side_menu .navigation ul li a:hover {
 }
 body #interface {
   width: calc(100% - 300px);
+  margin-left: 300px;
+  position: relative;
 }
 body #interface .search_top {
   display: flex;
@@ -99,6 +106,8 @@ body #about_section {
   color: var(--about-font-color);
   font-size: 14px;
   width: calc(100% - 300px);
+  margin-left: 300px;
+  position: relative;
 }
 body #about_section h2 {
   padding-bottom: 8px;
