@@ -18,7 +18,16 @@
 .current{
 
     li{
+        background-color: #001E30;
         border-left: 4px solid white;
+    }
+
+    .nav_hover{
+        transition: 0.3s ease;
+
+        &:hover{
+            transform: translate(5px, 0);
+        }
     }
 }
 
@@ -48,10 +57,12 @@ body{
                     width: 100%;
                     transition: 0.3s ease;
 
-                    &:hover{
-                        cursor: pointer;
-                        transform: translate(5px, 0);
-                        
+                    .nav_hover{
+                        transition: 0.3s ease;
+                
+                        &:hover{
+                            transform: translate(5px, 0);
+                        }
                     }
 
                     img{
@@ -69,11 +80,6 @@ body{
                         text-align: center;
                         margin: 0 10px 0 25px;
                         transition: 0.3s ease;
-
-                        &:hover{
-                            cursor: pointer;
-                            transform: translate(5px, 0);
-                        }
                     }
                 }
             }

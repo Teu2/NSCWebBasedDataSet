@@ -14,7 +14,14 @@
 }
 
 .current li {
+  background-color: #001E30;
   border-left: 4px solid white;
+}
+.current .nav_hover {
+  transition: 0.3s ease;
+}
+.current .nav_hover:hover {
+  transform: translate(5px, 0);
 }
 
 body {
@@ -41,8 +48,10 @@ body #side_menu .navigation ul li {
   width: 100%;
   transition: 0.3s ease;
 }
-body #side_menu .navigation ul li:hover {
-  cursor: pointer;
+body #side_menu .navigation ul li .nav_hover {
+  transition: 0.3s ease;
+}
+body #side_menu .navigation ul li .nav_hover:hover {
   transform: translate(5px, 0);
 }
 body #side_menu .navigation ul li img {
@@ -59,10 +68,6 @@ body #side_menu .navigation ul li a {
   text-align: center;
   margin: 0 10px 0 25px;
   transition: 0.3s ease;
-}
-body #side_menu .navigation ul li a:hover {
-  cursor: pointer;
-  transform: translate(5px, 0);
 }
 body #interface {
   width: calc(100% - 300px);
