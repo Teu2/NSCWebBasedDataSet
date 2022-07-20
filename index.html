@@ -4,10 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NSCLab Web Based Dataset</title>
-    <link rel="stylesheet" href="styles/styles.css">
     <!-- we can probable get rid of line 9 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
 </head>
     <body>
@@ -24,9 +24,9 @@
             <!-- naviation links -->
             <div class="navigation">
                 <ul>
-                    <div class="current"><li><div class="nav_hover"><a href="index.html"><img src="images/home.png" alt="">Home</a></div></li></div>
-                    <li><div class="nav_hover"><a href="about.html"><img src="images/about.png" alt="">About</a></div></li>
-                    <li><div class="nav_hover"><a href="http://nsclab.org/nsclab/" target="_blank"><img src="images/domain.png" alt="">NSCLab</a></div></li>
+                    <div class="current"><li><div class="nav_hover"><a href="index.html"><img src="./images/home.png" alt="">Home</a></div></li></div>
+                    <li><div class="nav_hover"><a href="about.html"><img src="./images/about.png" alt="">About</a></div></li>
+                    <li><div class="nav_hover"><a href="http://nsclab.org/nsclab/" target="_blank"><img src="./images/domain.png" alt="">NSCLab</a></div></li>
                 </ul>
             </div>
         </section> <!-- end of side menu section -->
@@ -47,7 +47,7 @@
                 <div class="left"> 
                     <div class="left_search">
                         <img src="images/search.png" alt="">
-                        <input type="text" placeholder="Search bugs..." size="60">
+                        <input type="text" placeholder="Search bugs..." size="60" id="myInput" onkeyup="search()">
                     </div>
                 </div>
 
@@ -63,14 +63,183 @@
                       </div>
                 </div>
             </div>
+
+            <!-- table -->
+            <div class="table_data" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                <table id="bug_table" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Bug Name</th>
+                            <th>Bug Type</th>
+                            <th>Bug Input</th>
+                            <th>Bug Commit</th>
+                            <th>Regression</th>
+                            <th>Status</th>
+                            <th>Report Date</th>
+                            <th>Fix Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name">botan/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">a</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">b</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">c</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">d</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">e/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">f/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">g/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">h/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">i/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">j/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">k/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">l/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">m/asn1</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                        <tr>
+                            <td class="name">x/asn1asn1asn1asn1asn1a</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td class="fixed">fixed</td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section> <!-- end of heading section-->
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
         </script>
-
-        <script src="scripts/index.js"></script>
-
+    
+        <script src="./scripts/index.js"></script>
     </body>
 </html>
