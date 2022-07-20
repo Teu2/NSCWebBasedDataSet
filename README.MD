@@ -1,7 +1,7 @@
 # DEPLOYMENT
 Link: https://nsclabdataset.netlify.app/index.html
 
-###### Contributors
+## Contributors
 - Atul Sharma (102445441)
 - Brendan Kroon (102579890)
 - Brodie Anderson (102118882)
