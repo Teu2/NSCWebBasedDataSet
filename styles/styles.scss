@@ -13,12 +13,13 @@
     --about-font-color: #6D6D6D;
     --background-color: #f1f5fb;
     --temp-color: #E5E7EB;
+    --searchbar-color: #dae2ed;
 }
 
 .current{
 
     li{
-        background-color: #001E30;
+        background-color: #001E30; 
         border-left: 4px solid white;
     }
 
@@ -91,6 +92,41 @@ body{
         margin-left: 300px;
         position: relative;
 
+        .search_sort{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 0 30px;
+
+            .left{
+
+                background-color: var(--searchbar-color);
+                border-radius: 50px;
+                // width: 500px;
+
+                .left_search{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 8px 14px;
+                    // border: 1px solid;
+                    border-radius: 50px;
+                }
+
+                input{
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    margin-left: 10px;
+                }
+
+                img{
+                    width: 20px;
+                }
+            }
+        }
+
         .search_top{
             display: flex;
             justify-content: space-between;
@@ -104,23 +140,7 @@ body{
 
             .left{
 
-                .search{ // search bar formatting
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    padding: 8px 14px;
-                    border: 1px solid;
-
-                    input{
-                        border: none;
-                        outline: none;
-                        margin-left: 10px;
-                    }
-
-                    img{
-                        width: 20px;
-                    }
-                }
+                
             }
 
             .right_logo{
@@ -165,6 +185,20 @@ body{
         align-items: center;
         color: white;
         padding: 30px 0 0 22px;
+
+        #header_text{
+            padding-top: 10px;
+
+            p{
+                font-size: 12px;
+            }
+
+            h2{
+                font-family: 'Montserrat';
+            }
+        }
+
+        
         
         img{
             width: 85px;
