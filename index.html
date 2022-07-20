@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NSCLab Web Based Dataset</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <!-- we can probable get rid of line 9 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
 </head>
     <body>
+        <!-- side menu section -->
         <section id="side_menu" data-aos="fade-right" data-aos-duration="700">
             <div class="bug_logo">
                 <img src="images/Bug Hosting.png" alt="bug logo">
@@ -18,6 +20,8 @@
                     <p>Ver 2.0.1</p>
                 </div>
             </div>
+
+            <!-- naviation links -->
             <div class="navigation">
                 <ul>
                     <div class="current"><li><div class="nav_hover"><a href="index.html"><img src="images/home.png" alt="">Home</a></div></li></div>
@@ -25,19 +29,20 @@
                     <li><div class="nav_hover"><a href="http://nsclab.org/nsclab/" target="_blank"><img src="images/domain.png" alt="">NSCLab</a></div></li>
                 </ul>
             </div>
-        </section>
+        </section> <!-- end of side menu section -->
 
+        <!-- heading section -->
         <section id="interface" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
-            <div class="search_top"> 
+            <div class="search_heading"> 
                 <div class="left"> 
                     <h1>DATABASE</h1>
                 </div>
-
                 <div class="right_logo">
                     <img src="images/logo.jpg" alt="">
                 </div>
             </div>
 
+            <!-- search bar -->
             <div class="search_sort"> 
                 <div class="left"> 
                     <div class="left_search">
@@ -46,22 +51,19 @@
                     </div>
                 </div>
 
+                <!-- drop down box -->
                 <div class="right_sort">
                     <div include="form-input-select()">
-                        <select required><option value="" hidden>Example Placeholder</option>
-                          <!-- normal options -->
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                          <option value="4">Option 4</option>
-                          <option value="5">Option 5</option>
+                        <select required><option value="" hidden>Sort by... </option>
+                          <option value="1">Newest</option>
+                          <option value="2">Oldest</option>
+                          <option value="3">Type</option>
+                          <option value="4">Regression</option>
                         </select>
                       </div>
                 </div>
             </div>
-            
-
-        </section>
+        </section> <!-- end of heading section-->
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>

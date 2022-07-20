@@ -102,7 +102,7 @@ body #interface .search_sort .left input {
 body #interface .search_sort .left img {
   width: 20px;
 }
-body #interface .search_top {
+body #interface .search_heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,7 +114,7 @@ body #interface .search_top {
   border-image-slice: 1;
   width: 100%;
 }
-body #interface .search_top .right_logo img {
+body #interface .search_heading .right_logo img {
   width: 95px;
 }
 body #about_section {
