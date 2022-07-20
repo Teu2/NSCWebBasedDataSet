@@ -9,3 +9,5 @@ Link: https://nsclabdataset.netlify.app/index.html
 - Kim Ying Teh (102881498)
 - Nathan Dobricic-Luttick (103051182)
 
+## Contributors
+if it looks weird just zoom out, the client said he didn't want it responsive if I remember correctly
