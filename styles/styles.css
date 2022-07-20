@@ -162,6 +162,7 @@ body .table_data {
 body .table_data table {
   table-layout: auto;
   border-collapse: collapse;
+  font-size: 14px;
   width: 100%;
 }
 body .table_data table .fixed {
