@@ -82,7 +82,7 @@ body #interface .search_sort {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 40px;
   padding: 0 30px;
 }
 body #interface .search_sort .left {
