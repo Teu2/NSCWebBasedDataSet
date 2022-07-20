@@ -32,8 +32,8 @@
         </section> <!-- end of side menu section -->
 
         <!-- heading section -->
-        <section id="interface" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
-            <div class="search_heading"> 
+        <section id="interface">
+            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
                 <div class="left"> 
                     <h1>DATABASE</h1>
                 </div>
@@ -43,7 +43,7 @@
             </div>
 
             <!-- search bar -->
-            <div class="search_sort"> 
+            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
                 <div class="left"> 
                     <div class="left_search">
                         <img src="images/search.png" alt="">
@@ -52,8 +52,8 @@
                 </div>
 
                 <!-- drop down box -->
-                <div class="right_sort">
-                    <div include="form-input-select()">
+                <div class="right_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                    <div include="form-input-select()" class="select_box">
                         <select required><option value="" hidden>Sort by... </option>
                           <option value="1">Newest</option>
                           <option value="2">Oldest</option>
@@ -69,6 +69,8 @@
         <script>
             AOS.init();
         </script>
+
+        <script src="scripts/index.js"></script>
 
     </body>
 </html>

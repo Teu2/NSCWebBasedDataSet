@@ -73,7 +73,6 @@ body #side_menu .navigation ul li a {
 body #interface {
   width: calc(100% - 300px);
   margin-left: 300px;
-  position: relative;
 }
 body #interface .search_sort {
   display: flex;
@@ -101,6 +100,19 @@ body #interface .search_sort .left input {
 }
 body #interface .search_sort .left img {
   width: 20px;
+}
+body #interface .search_sort .right_sort {
+  margin-right: 20px;
+  font-size: 13px;
+  position: relative;
+}
+body #interface .search_sort .right_sort .select_box select {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: var(--about-font-color);
+  background-color: var(--searchbar-color);
+  width: 200px;
 }
 body #interface .search_heading {
   display: flex;

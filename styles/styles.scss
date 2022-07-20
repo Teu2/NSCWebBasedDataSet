@@ -90,7 +90,6 @@ body{
     #interface{
         width: calc(100% - 300px);
         margin-left: 300px;
-        position: relative;
 
         .search_sort{
             display: flex;
@@ -100,17 +99,14 @@ body{
             padding: 0 30px;
 
             .left{
-
                 background-color: var(--searchbar-color);
                 border-radius: 50px;
-                // width: 500px;
 
                 .left_search{
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                     padding: 8px 14px;
-                    // border: 1px solid;
                     border-radius: 50px;
                 }
 
@@ -123,6 +119,24 @@ body{
 
                 img{
                     width: 20px;
+                }
+            }
+
+            .right_sort{
+                margin-right: 20px;
+                font-size: 13px;
+                position: relative;
+
+                .select_box{
+
+                    select{
+                        padding: 5px 10px;
+                        border: none;
+                        border-radius: 5px;
+                        color: var(--about-font-color);
+                        background-color: var(--searchbar-color);
+                        width: 200px;
+                    }
                 }
             }
         }
@@ -193,8 +207,6 @@ body{
             }
         }
 
-        
-        
         img{
             width: 85px;
             margin-right: 10px;
