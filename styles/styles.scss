@@ -14,6 +14,7 @@
     --background-color: #f1f5fb;
     --temp-color: #E5E7EB;
     --searchbar-color: #dae2ed;
+    --fixed-color: #c3e2c6;
 }
 
 .current{
@@ -197,6 +198,13 @@ body{
             border-collapse: collapse;
             width: 100%;
 
+            .fixed{
+                color: #558d51;
+                background-color: var(--fixed-color);
+                border-radius: 5px;
+                text-align: center;
+            }
+
             th{
                 text-overflow: ellipsis; 
                 overflow-x: hidden;
@@ -209,7 +217,8 @@ body{
                 text-overflow: ellipsis; 
                 overflow-x: hidden;
                 background-color: white;
-                padding: 5px 10px;
+                padding: 7px 10px;
+                border-bottom: 4px solid var(--background-color);
             }
         }
 

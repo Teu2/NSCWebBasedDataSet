@@ -12,6 +12,7 @@
   --background-color: #f1f5fb;
   --temp-color: #E5E7EB;
   --searchbar-color: #dae2ed;
+  --fixed-color: #c3e2c6;
 }
 
 .current li {
@@ -160,6 +161,12 @@ body .table_data table {
   border-collapse: collapse;
   width: 100%;
 }
+body .table_data table .fixed {
+  color: #558d51;
+  background-color: var(--fixed-color);
+  border-radius: 5px;
+  text-align: center;
+}
 body .table_data table th {
   text-overflow: ellipsis;
   overflow-x: hidden;
@@ -171,7 +178,8 @@ body .table_data table td {
   text-overflow: ellipsis;
   overflow-x: hidden;
   background-color: white;
-  padding: 5px 10px;
+  padding: 7px 10px;
+  border-bottom: 4px solid var(--background-color);
 }
 body .table_data .row {
   justify-content: space-between;
