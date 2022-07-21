@@ -4,11 +4,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NSCLab Web Based Dataset</title>
-    <!-- we can probable get rid of line 9 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
     <body>
         <!-- side menu section -->
@@ -65,7 +66,7 @@
             </div>
 
             <!-- table with dummy data-->
-            <div class="table_data" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+            <!-- <div class="table_data" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
                 <table id="bug_table" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
@@ -79,7 +80,7 @@
                             <th>Fix Date</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="table_body">
                         <tr>
                             <td class="name">botan/asn1</td>
                             <td>Bug</td>
@@ -230,17 +231,52 @@
                             <td>21/11/2017</td>
                             <td>24/12/2017</td>
                         </tr>
-                        
+                        <tr>
+                            <td class="name">aosp/sqlite</td>
+                            <td>Bug</td>
+                            <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040">Link</a></td>
+						    <td class="link"><a href="https://github.com/google/oss-fuzz/blob/master/docs/reproducing.md">Link</a></td>
+                            <td>Not Regressed</td>
+                            <td><p class="fixed">fixed</p></td>
+                            <td>21/11/2017</td>
+                            <td>24/12/2017</td>
+                        </tr>
                     </tbody>
                 </table>
+            </div> -->
+
+            <div class="container" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                <table class="table table-dark" id="our-table">
+                    <thead>
+                        <tr>
+                            <th>Bug Name</th>
+                            <th>Bug Type</th>
+                            <th>Bug Input</th>
+                            <th>Bug Commit</th>
+                            <th>Regression</th>
+                            <th>Status</th>
+                            <th>Report Date</th>
+                            <th>Fix Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+            
+                    </tbody>
+                    <script src="script.js"></script>
+                </table>
             </div>
+            <div class="container">
+                <div id="pagination-wrapper"></div>
+            </div>
+
+            <script src="./scripts/tablesearch.js"></script>
         </section> <!-- end of heading section-->
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
         </script>
-    
+
         <script src="./scripts/index.js"></script>
     </body>
 </html>

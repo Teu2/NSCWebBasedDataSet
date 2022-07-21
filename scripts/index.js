@@ -6,8 +6,6 @@
 * Last updated: 24/05/2022
 */
 
-"use strict";
-
 function search(){
   let input, filter, table, tr, td, txtValue;
 
@@ -30,8 +28,4 @@ function search(){
       }
     }
   }
-}
-
-function sort(){
-
 }

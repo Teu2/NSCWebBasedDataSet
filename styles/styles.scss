@@ -21,6 +21,63 @@
     --fixed-color: #c3e2c6;
 }
 
+.container{
+    margin: 40px 35px;
+
+    table{
+        table-layout: auto;
+        border-collapse: collapse;
+        font-size: 14px;
+        width: 100%;
+        margin-top: 29px;
+
+        .fixed{
+            color: #558d51;
+            background-color: var(--fixed-color);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        th{
+            text-overflow: ellipsis; 
+            overflow-x: hidden;
+            text-align: left;
+            padding: 0 10px;
+            padding-bottom: 16px;
+        }
+
+        td{
+            text-overflow: ellipsis; 
+            overflow-x: hidden;
+            background-color: white;
+            padding: 7px 10px;
+            border-bottom: 4px solid var(--background-color);
+        }
+    }
+
+    #pagination-wrapper{
+        display: flex;
+        justify-content: end;
+        margin-top: -30px;
+
+        button{
+            background-color: var(--searchbar-color);
+            color: var(--about-font-color);
+            border: none;
+            margin: 2px;
+            padding: 5px 10px;
+            border-radius: 7px;
+            transition: all 0.3s ease;
+
+            &:hover{
+                cursor: pointer;
+                background-color: #096ead;
+                color: white;
+            }
+        }
+    }
+}
+
 .current{
 
     li{
@@ -95,6 +152,7 @@ body{
     #interface{
         width: calc(100% - 300px);
         margin-left: 300px;
+        font-family: 'Poppins';
 
         .search_sort{
             display: flex;
@@ -163,6 +221,34 @@ body{
                 }
             }
         }
+
+        #pagination_section{
+
+            ul{
+                width: auto;
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                margin-right: 33px;
+
+                li{
+                    margin: -7px 2px;
+                    list-style: none;
+                    background-color: var(--searchbar-color);
+                    padding: 1px 10px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    cursor: pointer;
+                    // border: 1px solid var(--about-font-color);
+                    transition: all 0.3s ease;
+
+                    &:hover{
+                        color: white;
+                        background-color: #b0b5bc;
+                    }
+                }
+            }
+        }
     }
 
     #about_section{
@@ -195,7 +281,6 @@ body{
 
     .table_data{
         margin: 40px 35px;
-        padding-bottom: 2.5em;
 
         table{
             table-layout: auto;

@@ -18,6 +18,56 @@
   --fixed-color: #c3e2c6;
 }
 
+.container {
+  margin: 40px 35px;
+}
+.container table {
+  table-layout: auto;
+  border-collapse: collapse;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 29px;
+}
+.container table .fixed {
+  color: #558d51;
+  background-color: var(--fixed-color);
+  border-radius: 5px;
+  text-align: center;
+}
+.container table th {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  text-align: left;
+  padding: 0 10px;
+  padding-bottom: 16px;
+}
+.container table td {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  background-color: white;
+  padding: 7px 10px;
+  border-bottom: 4px solid var(--background-color);
+}
+.container #pagination-wrapper {
+  display: flex;
+  justify-content: end;
+  margin-top: -30px;
+}
+.container #pagination-wrapper button {
+  background-color: var(--searchbar-color);
+  color: var(--about-font-color);
+  border: none;
+  margin: 2px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  transition: all 0.3s ease;
+}
+.container #pagination-wrapper button:hover {
+  cursor: pointer;
+  background-color: #096ead;
+  color: white;
+}
+
 .current li {
   background-color: #001E30;
   border-left: 4px solid white;
@@ -77,6 +127,7 @@ body #side_menu .navigation ul li a {
 body #interface {
   width: calc(100% - 300px);
   margin-left: 300px;
+  font-family: "Poppins";
 }
 body #interface .search_sort {
   display: flex;
@@ -132,6 +183,27 @@ body #interface .search_heading {
 body #interface .search_heading .right_logo img {
   width: 95px;
 }
+body #interface #pagination_section ul {
+  width: auto;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 33px;
+}
+body #interface #pagination_section ul li {
+  margin: -7px 2px;
+  list-style: none;
+  background-color: var(--searchbar-color);
+  padding: 1px 10px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+body #interface #pagination_section ul li:hover {
+  color: white;
+  background-color: #b0b5bc;
+}
 body #about_section {
   display: flex;
   justify-content: space-between;
@@ -157,7 +229,6 @@ body #about_section .right_vector img {
 }
 body .table_data {
   margin: 40px 35px;
-  padding-bottom: 2.5em;
 }
 body .table_data table {
   table-layout: auto;
