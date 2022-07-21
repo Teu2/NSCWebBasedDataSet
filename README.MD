@@ -1,6 +1,6 @@
 # DEPLOYMENT
 Link: https://nsclabdataset.netlify.app/index.html
-if it looks weird just zoom out, the client said he didn't want it responsive if I remember correctly
+if it looks weird just zoom out until it doesn't, the client said he didn't want it responsive if I remember correctly
 
 ## Contributors
 - Atul Sharma (102445441)
