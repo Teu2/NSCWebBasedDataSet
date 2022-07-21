@@ -11,7 +11,7 @@ let bugName = ['botan/asn1','openjpeg/opj_decompress_fuzzer','matio:matio_fuzzer
 let bugType = ['Bug','Bug-Security'];
 let bugRegression = ['Regresses','Not Regressed'];
 
-function createData(){
+function createData(){ // DUMMY DATA
     return {
         'bug_name': bugName[Math.floor(Math.random() * bugName.length)],
         'bug_type': bugType[Math.floor(Math.random() * bugType.length)],
@@ -103,7 +103,7 @@ var table = $('#table-body')
 var data = pagination(state.querySet, state.page, state.rows)
 var myList = data.querySet
 
-for (let i in myList) {
+for (let i in myList) { // this is how we will create the HTML dynamically from using a database
     var row = `<tr>
                 <td class="name">${myList[i].bug_name}</td>
                 <td>${myList[i].bug_type}</td>
