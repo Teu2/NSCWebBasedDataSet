@@ -41,7 +41,7 @@ var state = {
 buildTable()
 
 function pagination(querySet, page, rows) {
-    
+
     var trimStart = (page - 1) * rows
     var trimEnd = trimStart + rows
 
@@ -106,7 +106,6 @@ var myList = data.querySet
 
 for (let i in myList) { // this is how we will create the HTML dynamically from using a database
     var row = `<tr>
-                <td class="name">${myList[i].bug_name}</td>
                 <td class="name">${myList[i].bug_name}</td>
                 <td>${myList[i].bug_type}</td>
                 <td class="link"><a href="https://oss-fuzz.com/testcase?key=4859939824599040" target="blank">${myList[i].bug_input}</a></td>
