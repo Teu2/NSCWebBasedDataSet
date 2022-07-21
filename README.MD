@@ -1,5 +1,6 @@
 # DEPLOYMENT
 Link: https://nsclabdataset.netlify.app/index.html
+if it looks weird just zoom out, the client said he didn't want it responsive if I remember correctly
 
 ## Contributors
 - Atul Sharma (102445441)
@@ -8,6 +9,3 @@ Link: https://nsclabdataset.netlify.app/index.html
 - Dominic Yeoh (102571896)
 - Kim Ying Teh (102881498)
 - Nathan Dobricic-Luttick (103051182)
-
-## Note
-if it looks weird just zoom out, the client said he didn't want it responsive if I remember correctly
