@@ -1,3 +1,10 @@
+/**
+* Author: Group 2
+* Target: home.html
+* Purpose: This file is used to add javascript to home.html.
+* Created: 21/07/2022
+* Last updated: 21/07/2022
+*/
 var tableData = [{}]
 
 let bugName = ['botan/asn1','openjpeg/opj_decompress_fuzzer','matio:matio_fuzzer','augeas/augeas_escape_name_fuzzer','tpm2/tpm2_execute_command_fuzzer','yara/rules_fuzzer'];

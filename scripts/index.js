@@ -1,7 +1,7 @@
 /**
 * Author: Group 2
-* Target: search.html
-* Purpose: This file is used to add javascript to search.html.
+* Target: home.html
+* Purpose: This file is used to add javascript to home.html.
 * Created: 24/05/2022
 * Last updated: 24/05/2022
 */
