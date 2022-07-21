@@ -22,7 +22,6 @@ function createData(){ // DUMMY DATA
         'status': 'Fixed',
         'report_date': '21-07-2020',
         'fix_date': '21-07-2090',
-        
     }
 }
 
