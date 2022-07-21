@@ -278,40 +278,6 @@ body{
             }
         }
     }
-
-    .table_data{
-        margin: 40px 35px;
-
-        table{
-            table-layout: auto;
-            border-collapse: collapse;
-            font-size: 14px;
-            width: 100%;
-
-            .fixed{
-                color: #558d51;
-                background-color: var(--fixed-color);
-                border-radius: 5px;
-                text-align: center;
-            }
-
-            th{
-                text-overflow: ellipsis; 
-                overflow-x: hidden;
-                text-align: left;
-                padding: 0 10px;
-                padding-bottom: 16px;
-            }
-
-            td{
-                text-overflow: ellipsis; 
-                overflow-x: hidden;
-                background-color: white;
-                padding: 7px 10px;
-                border-bottom: 4px solid var(--background-color);
-            }
-        }
-
         .row{
             justify-content: space-between;
             align-items: center;
