@@ -282,4 +282,63 @@ body .bug_logo img {
   100% {
     transform: translate(0, 0px);
   }
+}
+@media (max-width: 1345px) {
+  body #side_menu {
+    width: 200px;
+  }
+  body #side_menu .bug_logo img {
+    width: 56px;
+    margin-left: -6px;
+  }
+  body #side_menu .bug_logo #header_text p {
+    font-size: 9px;
+  }
+  body #side_menu .bug_logo #header_text h2 {
+    font-size: 16px;
+    font-family: "Montserrat";
+  }
+  body #side_menu .navigation ul li img {
+    width: 16px;
+  }
+  body #side_menu .navigation ul li a {
+    font-size: 12px;
+  }
+  body #interface {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+  body #interface .search_heading h1 {
+    font-size: 20px;
+  }
+  body #interface .search_heading .right_logo img {
+    width: 80px;
+  }
+  body #interface .search_sort {
+    margin-top: 30px;
+  }
+  body #interface .search_sort .left {
+    background-color: var(--searchbar-color);
+  }
+  body #interface .search_sort .left .left_search {
+    padding: 5px 14px;
+  }
+  body #interface .search_sort .left input {
+    font-size: 11px;
+  }
+  body #interface .search_sort .left img {
+    width: 14px;
+  }
+  body #interface .search_sort .right_sort .select_box select {
+    font-size: 11px;
+  }
+  body #interface .search_sort .right_sort .select_box select option {
+    font-size: 11px;
+  }
+  body #interface .container table {
+    font-size: 11px;
+  }
+  body #interface .container #pagination-wrapper button {
+    margin-bottom: 11px;
+  }
 }/*# sourceMappingURL=styles.css.map */

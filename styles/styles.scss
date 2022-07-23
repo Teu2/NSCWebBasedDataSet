@@ -318,3 +318,117 @@ body{
     50%  { transform: translate(0, 15px); }
     100%   { transform: translate(0, -0px); }    
 }
+
+@media(max-width: 1345px){ // responsiveness for laptops (just in case the client asks for it later on)
+
+    body{
+
+        #side_menu{
+            width: 200px;
+
+            .bug_logo{
+
+                img{
+                    width: 56px;
+                    margin-left: -6px;
+                }
+
+                #header_text{
+                    p{
+                        font-size: 9px;
+                    }
+            
+                    h2{
+                        font-size: 16px;
+                        font-family: 'Montserrat';
+                    }
+                }
+            }
+
+            .navigation{
+
+                ul{
+
+                    li{
+
+                        img{
+                            width: 16px;
+                        }
+
+                        a{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #interface{
+            margin-left: 200px;
+            width: calc(100% - 200px);
+
+            .search_heading{
+
+                h1{
+                    font-size: 20px;
+                }
+
+                .right_logo{
+
+                    img{
+                        width: 80px;
+                    }
+                }
+            }
+
+            .search_sort{
+
+                margin-top: 30px;
+    
+                .left{
+                    background-color: var(--searchbar-color);
+    
+                    .left_search{
+                        padding: 5px 14px;
+                    }   
+    
+                    input{
+                        font-size: 11px;
+                    }
+    
+                    img{
+                        width: 14px;
+                    }
+                }
+    
+                .right_sort{
+    
+                    .select_box{
+    
+                        select{
+                            font-size: 11px;
+
+                            option{
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .container{
+
+                table{
+                    font-size: 11px;
+                }
+
+                #pagination-wrapper{
+
+                    button{
+                        margin-bottom: 11px;
+                    }
+                }
+            }
+        }
+    }
+}
