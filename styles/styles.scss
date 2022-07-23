@@ -12,7 +12,7 @@
     
 }
 
-:root{
+:root{ // variables if you want to change color
     --nav-color: #DEDEDE;
     --about-font-color: #6D6D6D;
     --background-color: #f1f5fb;
@@ -21,7 +21,7 @@
     --fixed-color: #c3e2c6;
 }
 
-.container{ // table
+.container{ // table css
     margin: 40px 35px;
 
     table{
@@ -78,7 +78,7 @@
     }
 }
 
-.current{
+.current{ // css to show what page you're currently on
 
     li{
         background-color: #001E30; 
@@ -94,7 +94,7 @@
     }
 }
 
-body{
+body{ 
     width: 100%;
     background: var(--background-color);
     position: relative;
@@ -323,7 +323,7 @@ body{
 
     body{
 
-        #side_menu{
+        #side_menu{ // index.html css =============================================================================================================================================================
             width: 200px;
 
             .bug_logo{
@@ -363,7 +363,7 @@ body{
             }
         }
 
-        #interface{
+        #interface{ 
             margin-left: 200px;
             width: calc(100% - 200px);
 
@@ -427,6 +427,29 @@ body{
                     button{
                         margin-bottom: 11px;
                     }
+                }
+            }
+        }
+
+        #about_section{ // about.html pages css ===================================================================================================================================================================
+            font-size: 9px;
+            width: calc(100% - 200px);
+            margin-left: 200px;
+
+            h2{
+                padding-bottom: 8px;
+            }
+
+            .left_text{
+                width: 600px;
+                padding-left: 80px;
+            }
+
+            .right_vector{
+                padding-left: 90px;
+                
+                img{
+                    width: 500px;
                 }
             }
         }

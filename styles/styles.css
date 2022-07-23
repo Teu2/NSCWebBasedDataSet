@@ -341,4 +341,22 @@ body .bug_logo img {
   body #interface .container #pagination-wrapper button {
     margin-bottom: 11px;
   }
+  body #about_section {
+    font-size: 9px;
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+  body #about_section h2 {
+    padding-bottom: 8px;
+  }
+  body #about_section .left_text {
+    width: 600px;
+    padding-left: 80px;
+  }
+  body #about_section .right_vector {
+    padding-left: 90px;
+  }
+  body #about_section .right_vector img {
+    width: 500px;
+  }
 }/*# sourceMappingURL=styles.css.map */
