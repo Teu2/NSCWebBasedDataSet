@@ -7,7 +7,7 @@
 */
 
 function search(){
-  let input, filter, table, tr, td, txtValue;
+  let input, filter, table, tr, td, txtValue, count, countNum = 0;
 
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
@@ -16,16 +16,24 @@ function search(){
 
   for(let i = 0; i < tr.length; i++){
     td = tr[i].getElementsByTagName("td")[0];
+    count = document.getElementById('count');
 
     if(td){
       txtValue = td.textContent || td.innerText;
 
       if(txtValue.toUpperCase().indexOf(filter) > -1){
         tr[i].style.display = "";
+        countNum++;
+        count.innerHTML = `Showing '${countNum}' of 1000`;
       }
       else{
         tr[i].style.display = "none";
       }
     }
+    else{
+      count.innerHTML = `Showing '0' of 1000`;
+    }
   }
+
+  // count.innerHTML = countNum;
 }

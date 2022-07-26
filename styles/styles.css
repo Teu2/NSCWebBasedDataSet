@@ -19,7 +19,7 @@
 }
 
 .container {
-  margin: 40px 35px;
+  margin: 30px 35px;
 }
 .container table {
   table-layout: auto;
@@ -47,6 +47,10 @@
   background-color: white;
   padding: 7px 10px;
   border-bottom: 4px solid var(--background-color);
+}
+.container #count {
+  color: var(--about-font-color);
+  font-size: 15px;
 }
 .container #pagination-wrapper {
   display: flex;
@@ -283,7 +287,7 @@ body .bug_logo img {
     transform: translate(0, 0px);
   }
 }
-@media (max-width: 1345px) {
+@media (max-width: 1520px) {
   body #side_menu {
     width: 200px;
   }
@@ -358,5 +362,82 @@ body .bug_logo img {
   }
   body #about_section .right_vector img {
     width: 500px;
+  }
+}
+@media (max-width: 1669px) {
+  body #side_menu {
+    width: 200px;
+  }
+  body #side_menu .bug_logo img {
+    width: 56px;
+    margin-left: -6px;
+  }
+  body #side_menu .bug_logo #header_text p {
+    font-size: 9px;
+  }
+  body #side_menu .bug_logo #header_text h2 {
+    font-size: 16px;
+    font-family: "Montserrat";
+  }
+  body #side_menu .navigation ul li img {
+    width: 16px;
+  }
+  body #side_menu .navigation ul li a {
+    font-size: 12px;
+  }
+  body #interface {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+  body #interface .search_heading h1 {
+    font-size: 20px;
+  }
+  body #interface .search_heading .right_logo img {
+    width: 80px;
+  }
+  body #interface .search_sort {
+    margin-top: 30px;
+  }
+  body #interface .search_sort .left {
+    background-color: var(--searchbar-color);
+  }
+  body #interface .search_sort .left .left_search {
+    padding: 5px 14px;
+  }
+  body #interface .search_sort .left input {
+    font-size: 11px;
+  }
+  body #interface .search_sort .left img {
+    width: 14px;
+  }
+  body #interface .search_sort .right_sort .select_box select {
+    font-size: 11px;
+  }
+  body #interface .search_sort .right_sort .select_box select option {
+    font-size: 11px;
+  }
+  body #interface .container table {
+    font-size: 11px;
+  }
+  body #interface .container #pagination-wrapper button {
+    margin-bottom: 11px;
+  }
+  body #about_section {
+    font-size: 11px;
+    width: calc(100% - 200px);
+    margin-left: 200px;
+  }
+  body #about_section h2 {
+    padding-bottom: 8px;
+  }
+  body #about_section .left_text {
+    width: 600px;
+    padding-left: 80px;
+  }
+  body #about_section .right_vector {
+    padding-left: 20px;
+  }
+  body #about_section .right_vector img {
+    width: 600px;
   }
 }/*# sourceMappingURL=styles.css.map */

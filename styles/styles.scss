@@ -22,7 +22,7 @@
 }
 
 .container{ // table css
-    margin: 40px 35px;
+    margin: 30px 35px;
 
     table{
         table-layout: auto;
@@ -53,6 +53,11 @@
             padding: 7px 10px;
             border-bottom: 4px solid var(--background-color);
         }
+    }
+
+    #count{
+        color: var(--about-font-color);
+        font-size: 15px;
     }
 
     #pagination-wrapper{
@@ -319,7 +324,7 @@ body{
     100%   { transform: translate(0, -0px); }    
 }
 
-@media(max-width: 1345px){ // responsiveness for laptops (just in case the client asks for it later on)
+@media(max-width: 1520px){ // responsiveness for laptops (just in case the client asks for it later on)
 
     body{
 
@@ -450,6 +455,143 @@ body{
                 
                 img{
                     width: 500px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1669px){ // responsiveness for laptops (just in case the client asks for it later on)
+
+    body{
+
+        #side_menu{ // index.html css =============================================================================================================================================================
+            width: 200px;
+
+            .bug_logo{
+
+                img{
+                    width: 56px;
+                    margin-left: -6px;
+                }
+
+                #header_text{
+                    p{
+                        font-size: 9px;
+                    }
+            
+                    h2{
+                        font-size: 16px;
+                        font-family: 'Montserrat';
+                    }
+                }
+            }
+
+            .navigation{
+
+                ul{
+
+                    li{
+
+                        img{
+                            width: 16px;
+                        }
+
+                        a{
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #interface{ 
+            margin-left: 200px;
+            width: calc(100% - 200px);
+
+            .search_heading{
+
+                h1{
+                    font-size: 20px;
+                }
+
+                .right_logo{
+
+                    img{
+                        width: 80px;
+                    }
+                }
+            }
+
+            .search_sort{
+
+                margin-top: 30px;
+    
+                .left{
+                    background-color: var(--searchbar-color);
+    
+                    .left_search{
+                        padding: 5px 14px;
+                    }   
+    
+                    input{
+                        font-size: 11px;
+                    }
+    
+                    img{
+                        width: 14px;
+                    }
+                }
+    
+                .right_sort{
+    
+                    .select_box{
+    
+                        select{
+                            font-size: 11px;
+
+                            option{
+                                font-size: 11px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .container{
+
+                table{
+                    font-size: 11px;
+                }
+
+                #pagination-wrapper{
+
+                    button{
+                        margin-bottom: 11px;
+                    }
+                }
+            }
+        }
+
+        #about_section{ // about.html pages css ===================================================================================================================================================================
+            font-size: 11px;
+            width: calc(100% - 200px);
+            margin-left: 200px;
+
+            h2{
+                padding-bottom: 8px;
+            }
+
+            .left_text{
+                width: 600px;
+                padding-left: 80px;
+            }
+
+            .right_vector{
+                padding-left: 20px;
+                
+                img{
+                    width: 600px;
                 }
             }
         }
