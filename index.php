@@ -100,30 +100,32 @@ $mysqli->close();
                             <th>Bug Type</th>
                             <th>Bug Input</th>
                             <th>Bug Commit</th>
+						    <th>Bug-Fixing Commit</th>
                             <th>Regression</th>
                             <th>Status</th>
                             <th>Report Date</th>
                             <th>Fix Date</th>
                         </tr>
-				
+							<?php
+							// LOOP TILL END OF DATA
+								while($rows=$result->fetch_assoc())
+								{
+							?>
                     </thead>
                     <tbody id="table-body"> <!-- table data will be generated within this <tbody> tag -->
-						<?php
-						// LOOP TILL END OF DATA
-							while($rows=$result->fetch_assoc())
-							{
-						?>
+						
 						<tr>
 						<!-- FETCHING DATA FROM EACH
 							ROW OF EVERY COLUMN -->
-						<td><?php echo $rows['bugname'];?></td>
-						<td><?php echo $rows['bugtype'];?></td>
-						<td><?php echo $rows['buginput'];?></td>
-						<td><?php echo $rows['bugcommit'];?></td>
-						<td><?php echo $rows['regression'];?></td>
-						<td><?php echo $rows['status'];?></td>
-						<td><?php echo $rows['reportdate'];?></td>
-						<td><?php echo $rows['fixdate'];?></td>
+						<td><?php echo $rows['_record_number'];?></td>
+						<td><?php echo $rows['Bug Type'];?></td>
+						<td><?php echo $rows['Bug Input'];?></td>
+						<td><?php echo $rows['Bug Commit'];?></td>
+						<td><?php echo $rows['Bug-fixing Commit'];?></td>
+						<td><?php echo $rows['Regressed or not'];?></td>
+						<td><?php echo $rows['Report Date'];?></td>
+						<td><?php echo $rows['Fixing Date'];?></td>
+						<td><?php echo $rows['Status(Verified or Fixed)'];?></td>
 						</tr>
 						<?php
 							}
