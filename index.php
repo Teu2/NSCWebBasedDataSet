@@ -1,25 +1,36 @@
 <?php
- 
+
 // Username is root
 $user = 'root';
 $password = '';
- 
+
 // Database name is geeksforgeeks
 $database = 'test_one.0';
- 
+
 // Server is localhost with
 // port number 3306
 $servername='localhost:3306';
 $mysqli = new mysqli($servername, $user,
                 $password, $database);
- 
+
 // Checking for connections
 if ($mysqli->connect_error) {
     die('Connect Error (' .
     $mysqli->connect_errno . ') '.
     $mysqli->connect_error);
+
+
+    $columns = array('_record_number','Bug Type','Bug Input','Bug Commit','Bug-fixing Commit','Regressed or not','Report Date','Fixing Date','Status(Verified or Fixed)');
+    $column = isset($_GET['column']) && in_array($_GET['column'], $columns) ? $_GET['column'] : $columns[0];
+    $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
+
+        if ($result = $mysqli->query('SELECT * FROM students ORDER BY ' .  $column . ' ' . $sort_order)) {
+
+          $up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $sort_order);
+          $asc_or_desc = $sort_order == 'ASC' ? 'desc' : 'asc';
+          $add_class = ' class="highlight"';
 }
- 
+
 // SQL query to select data from database
 $sql = " SELECT * FROM userdata ORDER BY score DESC ";
 $result = $mysqli->query($sql);
@@ -60,8 +71,8 @@ $mysqli->close();
 
         <!-- heading section -->
         <section id="interface">
-            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
-                <div class="left"> 
+            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                <div class="left">
                     <h1>DATABASE</h1>
                 </div>
                 <div class="right_logo">
@@ -70,8 +81,8 @@ $mysqli->close();
             </div>
 
             <!-- search bar -->
-            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
-                <div class="left"> 
+            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                <div class="left">
                     <div class="left_search">
                         <img src="images/search.png" alt="">
                         <input type="text" placeholder="Search bugs..." size="60" id="myInput" onkeyup="search()">
@@ -91,20 +102,21 @@ $mysqli->close();
                 </div>
             </div>
 
+
             <!-- table with dummy data -->
             <div class="container" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
                 <table class="table" id="our-table">
                     <thead>
                         <tr>
-                            <th>Bug Name</th>
-                            <th>Bug Type</th>
-                            <th>Bug Input</th>
-                            <th>Bug Commit</th>
-						    <th>Bug-Fixing Commit</th>
-                            <th>Regression</th>
-                            <th>Status</th>
-                            <th>Report Date</th>
-                            <th>Fix Date</th>
+                            <th><?php echo $asc_or_desc; ?>Bug Name<i class="fas fa-sort<?php echo $column == '_record_number' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Bug Type<i class="fas fa-sort<?php echo $column == 'Bug Type' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Bug Input<i class="fas fa-sort<?php echo $column == 'Bug Input' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Bug Commit<i class="fas fa-sort<?php echo $column == 'Bug Commit' ? '-' . $up_or_down : ''; ?>"></i></th>
+						                <th><?php echo $asc_or_desc; ?>Bug-Fixing Commit<i class="fas fa-sort<?php echo $column == 'Bug-fixing Commit' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Regression<i class="fas fa-sort<?php echo $column == 'Regressed or not' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Status<i class="fas fa-sort<?php echo $column == 'Status(Verified or Fixed)' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Report Date<i class="fas fa-sort<?php echo $column == 'Report Date' ? '-' . $up_or_down : ''; ?>"></i></th>
+                            <th><?php echo $asc_or_desc; ?>Fix Date<i class="fas fa-sort<?php echo $column == 'Fixing Date' ? '-' . $up_or_down : ''; ?>"></i></th>
                         </tr>
 							<?php
 							// LOOP TILL END OF DATA
@@ -113,19 +125,19 @@ $mysqli->close();
 							?>
                     </thead>
                     <tbody id="table-body"> <!-- table data will be generated within this <tbody> tag -->
-						
+
 						<tr>
 						<!-- FETCHING DATA FROM EACH
 							ROW OF EVERY COLUMN -->
-						<td><?php echo $rows['_record_number'];?></td>
-						<td><?php echo $rows['Bug Type'];?></td>
-						<td><?php echo $rows['Bug Input'];?></td>
-						<td><?php echo $rows['Bug Commit'];?></td>
-						<td><?php echo $rows['Bug-fixing Commit'];?></td>
-						<td><?php echo $rows['Regressed or not'];?></td>
-						<td><?php echo $rows['Report Date'];?></td>
-						<td><?php echo $rows['Fixing Date'];?></td>
-						<td><?php echo $rows['Status(Verified or Fixed)'];?></td>
+						<td><?php echo $column == '_record_number' ? $add_class : ''; ?>><?php echo $rows['_record_number'];?></td>
+						<td><?php echo $column == 'Bug Type' ? $add_class : ''; ?>><?php echo $rows['Bug Type'];?></td>
+						<td><?php echo $column == 'Bug Input' ? $add_class : ''; ?>><?php echo $rows['Bug Input'];?></td>
+						<td><?php echo $column == 'Bug Commit' ? $add_class : ''; ?>><?php echo $rows['Bug Commit'];?></td>
+						<td><?php echo $column == 'Bug-fixing Commit' ? $add_class : ''; ?>><?php echo $rows['Bug-fixing Commit'];?></td>
+						<td><?php echo $column == 'Regressed or not' ? $add_class : ''; ?>><?php echo $rows['Regressed or not'];?></td>
+						<td><?php echo $column == 'Report Date' ? $add_class : ''; ?>><?php echo $rows['Report Date'];?></td>
+						<td><?php echo $column == 'Fixing Date' ? $add_class : ''; ?>><?php echo $rows['Fixing Date'];?></td>
+						<td><?php echo $column == 'Status(Verified or Fixed)' ? $add_class : ''; ?>><?php echo $rows['Status(Verified or Fixed)'];?></td>
 						</tr>
 						<?php
 							}
@@ -134,11 +146,11 @@ $mysqli->close();
                     <script src="script.js"></script>
                 </table>
             </div>
-            
+
             <!-- this div let's us browse 1000+ records in pages instead of scrolling for eternity -->
-            <div class="container"> 
+            <div class="container">
                 <div id="count">Showing '16' of 1000</div>
-                <div id="pagination-wrapper"></div> 
+                <div id="pagination-wrapper"></div>
             </div>
 
             <script src="./scripts/tablesearch.js"></script>
