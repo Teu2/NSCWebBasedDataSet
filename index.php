@@ -19,22 +19,73 @@ if ($mysqli->connect_error) {
     $mysqli->connect_errno . ') '.
     $mysqli->connect_error);
 
+}
+
+
+// SQL query to select data from database
+$sql = " SELECT * FROM userdata ORDER BY score DESC ";
+//$result = $mysqli->query($sql);
+//$mysqli->close();
+
 
     $columns = array('_record_number','Bug Type','Bug Input','Bug Commit','Bug-fixing Commit','Regressed or not','Report Date','Fixing Date','Status(Verified or Fixed)');
     $column = isset($_GET['column']) && in_array($_GET['column'], $columns) ? $_GET['column'] : $columns[0];
     $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
 
-        if ($result = $mysqli->query('SELECT * FROM students ORDER BY ' .  $column . ' ' . $sort_order)) {
+    if ($result = $mysqli->query('SELECT * FROM students ORDER BY ' .  $column . ' ' . $sort_order)) {
 
-          $up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $sort_order);
-          $asc_or_desc = $sort_order == 'ASC' ? 'desc' : 'asc';
-          $add_class = ' class="highlight"';
+    $up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $sort_order);
+    $asc_or_desc = $sort_order == 'ASC' ? 'desc' : 'asc';
+    $add_class = ' class="highlight"';
+
+    $searchErr = '';
+    $details='';
+    if(isset($_POST['save']))
+          {
+            //not working search function.
+            // Escape the search string and trim
+// all whitespace
+$searchString = mysqli_real_escape_string($connection_string, trim(htmlentities($_POST['search'])));
+
+
+// Check for empty strings and non-alphanumeric
+// characters.
+// Also, check if the string length is less than
+// three. If any of the checks returns "true",
+// return "Invalid search string", and
+// kill the script.
+if ($searchString === "" || !ctype_alnum($searchString) || $searchString < 3) {
+echo "Invalid search string";
+exit();
 }
 
-// SQL query to select data from database
-$sql = " SELECT * FROM userdata ORDER BY score DESC ";
-$result = $mysqli->query($sql);
-$mysqli->close();
+// We are using a prepared statement with the
+// search functionality to prevent SQL injection.
+// So, we need to prepend and append the search
+// string with percent signs
+$searchString = "%$searchString%";
+
+// Prepare, bind, and execute the query
+$prepared_stmt = $connection_string->prepare($sql);
+$prepared_stmt->bind_param('s', $searchString);
+$prepared_stmt->execute();
+
+// Fetch the result
+$result = $prepared_stmt->get_result();
+
+if ($result->num_rows === 0) {
+// No match found
+echo "No match found";
+// Kill the script
+exit();
+
+              else
+              {
+                  $searchErr = "Please enter the information";
+              }
+
+          }
+
 ?>
 <html lang="en">
 <head>
@@ -139,9 +190,9 @@ $mysqli->close();
 						<td><?php echo $column == 'Fixing Date' ? $add_class : ''; ?>><?php echo $rows['Fixing Date'];?></td>
 						<td><?php echo $column == 'Status(Verified or Fixed)' ? $add_class : ''; ?>><?php echo $rows['Status(Verified or Fixed)'];?></td>
 						</tr>
-						<?php
-							}
-						?>
+
+							<?php endwhile; ?>}
+
                     </tbody>
                     <script src="script.js"></script>
                 </table>
