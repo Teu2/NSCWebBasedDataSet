@@ -16,16 +16,18 @@ function search(){
 
   for(let i = 0; i < tr.length; i++){
     td = tr[i].getElementsByTagName("td")[0];
+	for(j = 0; j < td.length; j++){
+		if(td[j]){
+		  txtValue = td[j].textContent || td[j].innerText;
 
-    if(td){
-      txtValue = td.textContent || td.innerText;
-
-      if(txtValue.toUpperCase().indexOf(filter) > -1){
-        tr[i].style.display = "";
-      }
-      else{
-        tr[i].style.display = "none";
-      }
-    }
+		  if(txtValue.toUpperCase().indexOf(filter) > -1){
+			tr[i].style.display = "";
+			break;
+		  }
+		  else{
+			tr[i].style.display = "none";
+		  }
+		}
+	}
   }
 }
