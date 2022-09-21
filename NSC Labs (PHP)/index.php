@@ -33,8 +33,8 @@
 
         <!-- heading section -->
         <section id="interface">
-            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
-                <div class="left"> 
+            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                <div class="left">
                     <h1>DATABASE</h1>
                 </div>
                 <div class="right_logo">
@@ -43,8 +43,8 @@
             </div>
 
             <!-- search bar -->
-            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
-                <div class="left"> 
+            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
+                <div class="left">
                     <div class="left_search">
                         <img src="images/search.png" alt="">
                         <input type="text" placeholder="Search bugs..." size="60" id="myInput" onkeyup="search()">
@@ -82,10 +82,10 @@
                     </thead>
                     <tbody id="table-body"> <!-- table data will be generated within this <tbody> tag -->
                         <?php
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $database = "nscbugdataset"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine
+                            $servername = "localhost"; // change to sql300.epizy.com
+                            $username = "root"; //change credentials to infinity free login for cpanel
+                            $password = ""; //change credentials to infinity free login for cpanel
+                            $database = "nscbugdataset"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
 
                             // create a connection
                             $connection = new mysqli($servername, $username, $password, $database);
@@ -95,7 +95,7 @@
                                 die("connection failed: " . $connection->connect_error);
                             }
 
-                            $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine
+                            $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine, keep the same as master2 for now.
                             $result = $connection->query($sqlQuery);
 
                             $link = "LINK";
@@ -113,16 +113,16 @@
                                 <td>" . $row["Fixing Date"] . "</td>
                                 ";
                             }
-                            
+
                         ?>
                     </tbody>
                     <script src="script.js"></script>
                 </table>
             </div>
-            
+
             <!-- this div let's us browse 1000+ records in pages instead of scrolling for eternity -->
-            <div class="container"> 
-                <div id="pagination-wrapper"></div> 
+            <div class="container">
+                <div id="pagination-wrapper"></div>
             </div>
 
             <!-- <script src="./scripts/tablesearch.js"></script> -->
