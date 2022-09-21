@@ -83,8 +83,8 @@
                     <tbody id="table-body"> <!-- table data will be generated within this <tbody> tag -->
                         <?php
                             $servername = "localhost"; // change to sql300.epizy.com
-                            $username = "root"; //change credentials to infinity free login for cpanel
-                            $password = ""; //change credentials to infinity free login for cpanel
+                            $username = "root"; //change credentials to infinity free login for cpanel epiz_32617535
+                            $password = ""; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
                             $database = "nscbugdataset"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
 
                             // create a connection
