@@ -15,24 +15,26 @@ function search(){
   tr = table[0].getElementsByTagName("tr");
 
   for(let i = 0; i < tr.length; i++){
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td");
     count = document.getElementById('count');
-
-    if(td){
-      txtValue = td.textContent || td.innerText;
-
-      if(txtValue.toUpperCase().indexOf(filter) > -1){
-        tr[i].style.display = "";
-        countNum++;
-        count.innerHTML = `Showing '${countNum}' of 1000`;
-      }
-      else{
-        tr[i].style.display = "none";
-      }
-    }
-    else{
-      count.innerHTML = `Showing '0' of 1000`;
-    }
+	for(j = 0; j < td.length; j++){
+		if(td[j]){
+		  txtValue = td[j].textContent || td[j].innerText;
+		  
+		  if(txtValue.toUpperCase().indexOf(filter) > -1){
+			tr[i].style.display = "";
+			countNum++;
+			count.innerHTML = `Showing '${countNum}' of 1000`;
+			break;
+		  }
+		  else{
+			tr[i].style.display = "none";
+		  }
+		}
+		else{
+		  count.innerHTML = `Showing '0' of 1000`;
+		}
+	}	
   }
 
   // count.innerHTML = countNum;
