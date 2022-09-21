@@ -1,5 +1,6 @@
 # DEPLOYMENT
-Link: https://nsclabdataset.netlify.app/index.html
+Link: https://nsclabdataset.netlify.app/index.html original link,
+new link with php: http://nscdataset.infinityfreeapp.com/index.php
 if it looks weird just zoom out until it doesn't, the client said he didn't want it responsive if I remember correctly
 
 ## Contributors
