@@ -50,6 +50,7 @@
                         <input type="text" placeholder="Search bugs..." size="60" id="myInput" onkeyup="search()">
                     </div>
                 </div>
+             </div>
 
                 <!-- drop down box -->
                 <div class="right_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
