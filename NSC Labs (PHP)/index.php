@@ -125,7 +125,7 @@
                 <div id="pagination-wrapper"></div>
             </div>
 
-            <!-- <script src="./scripts/tablesearch.js"></script> -->
+            <script src="./scripts/tablesearch.js"></script>
         </section> <!-- end of heading section-->
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -133,6 +133,6 @@
             AOS.init();
         </script>
 
-        <!-- <script src="./scripts/index.js"></script> -->
+        <script src="./scripts/index.js"></script>
     </body>
 </html>
