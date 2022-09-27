@@ -10,7 +10,8 @@
 	<script src="./scripts/index.js"></script>
 	<script src="./scripts/tablesearch.js"></script>
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
-    <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./styles/styles.css">
+	<style><?php include "./styles/styles.css" ?></style>
 </head>
     <body>
         <!-- side menu section -->
