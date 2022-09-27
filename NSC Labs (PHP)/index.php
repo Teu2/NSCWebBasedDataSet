@@ -7,6 +7,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/scripts/index.js"></script>
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
