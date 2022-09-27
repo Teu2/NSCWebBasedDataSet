@@ -34,7 +34,7 @@
             <div class="left_text">
                 <h2>BACKSTORY</h2>
                 <p>Cybersecurity is an important issue for today’s society because it can prevent private data leakage and financial losses. It can also cause reputational loss to stakeholders who aren’t able to secure their Enterprise Architecture. Amongst all the solutions for cybersecurity, bug analysis is a critical one to help prevent cyber attacks. 
-                    Google’s Fuzzbench, which is a free service that evaluates fuzzers on a wide variety of real-world benchmarks has over 10,000+ bugs that have a different status assigned to them including, fixed, verified, and new. In order for a programmer to find a bug, it would be time consuming and require a great deal of effort due to the complexity of the website.</p>
+                    Google’s Fuzzbench, which is a free service that evaluates fuzzers on a wide variety of real-world benchmarks. Containing over 10,000+ bugs labeled with appropriate statuses including, fixed, verified, and new. In order for a programmer to find a bug, it would be time consuming and require a great deal of effort due to the complexity of the website, however with this website such issues of efficiency and access to reasources can be assisted.</p>
                 <br>
                 <br>
                 <h2>PURPOSE</h2>
