@@ -4,13 +4,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NSCLab Web Based Dataset</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<script src="./scripts/index.js"></script>
 	<script src="./scripts/tablesearch.js"></script>
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css?v=<?php echo time(); ?>">
 </head>
     <body>
         <!-- side menu section -->
