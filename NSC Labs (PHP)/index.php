@@ -7,15 +7,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/scripts/index.js"></script>
     <link rel="icon" type="image/png" href="images/DataSetWindowsIcon.png">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./Styles/styles.css">
 </head>
     <body>
         <!-- side menu section -->
         <section id="side_menu" data-aos="fade-right" data-aos-duration="700">
             <div class="bug_logo">
-                <img src="images/Bug Hosting.png" alt="bug logo">
+                <img src="images/Bug Hosting.svg" alt="bug logo">
                 <div id="header_text">
                     <h2>NSC Dataset</h2>
                     <p>Ver 2.0.1</p>
@@ -49,9 +48,8 @@
                     <div class="left_search">
                         <img src="images/search.png" alt="">
                         <input type="text" placeholder="Search bugs..." size="60" id="myInput" onkeyup="search()">
-					</div>
+                    </div>
                 </div>
-			</div>
 
                 <!-- drop down box -->
                 <div class="right_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
@@ -84,10 +82,10 @@
                     </thead>
                     <tbody id="table-body"> <!-- table data will be generated within this <tbody> tag -->
                         <?php
-                            $servername = "localhost"; // change to sql300.epizy.com
-                            $username = "root"; //change credentials to infinity free login for cpanel epiz_32617535
-                            $password = ""; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
-                            $database = "nscbugdataset"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
+                            $servername = "sql300.epizy.com"; // change to sql300.epizy.com
+                            $username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
+                            $password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
+                            $database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
 
                             // create a connection
                             $connection = new mysqli($servername, $username, $password, $database);
@@ -101,12 +99,13 @@
                             $result = $connection->query($sqlQuery);
 
                             $link = "LINK";
+                            $download = "DOWNLOAD";
 
                             while ($row = $result->fetch_assoc()) {
                                 echo " <tr>
                                 <td class='name'>" . $row["_record_number"] . "</td>
                                 <td>" . $row["Bug Type"] . "</td>
-                                <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $link .  "<a></td>
+                                <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
                                 <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
                                 <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
                                 <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
