@@ -47,37 +47,37 @@
                 <div class="left">
                     <div class="left_search">
                         <form action="index.php" method="post">
-							<img src="images/search.png" alt=""/>
-							<input type="text" placeholder="Search bugs..." size="60" id="myInput"/>
-							<input type="submit" value="Search" />
-						</form>
-						<?php
-							if (isset($_POST["search"])) {
-							  $servername = "sql300.epizy.com"; // change to sql300.epizy.com
-								$username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
-								$password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
-								$database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
+				<img src="images/search.png" alt=""/>
+				<input type="text" placeholder="Search bugs..." size="60" id="myInput"/>
+				<input type="submit" value="Search" />
+			</form>
+			<?php
+				if (isset($_POST["search"])) {
+				  $servername = "sql300.epizy.com"; // change to sql300.epizy.com
+					$username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
+					$password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
+					$database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
 
-								// create a connection
-								$connection = new mysqli($servername, $username, $password, $database);
+					// create a connection
+					$connection = new mysqli($servername, $username, $password, $database);
 
-								// check connection
-								if ($connection->connect_error) {
-									die("connection failed: " . $connection->connect_error);
-								}
+					// check connection
+					if ($connection->connect_error) {
+						die("connection failed: " . $connection->connect_error);
+					}
 
-								if (!isset($_POST["Bug_Type"])&&!isset($_POST["Regression"])&&!isset($_POST["Status"])&&!isset($_POST["Report_Date"])&&!isset($_POST["Fix_Date"]))
-									$search_results = "SELECT * FROM master2 order by Report_Date;";
-								else {
-									$Bug_Type=trim($_POST["Bug_Type"]);
-									$Regression=trim($_POST["Regression"]);
-									$Status=trim($_POST["Status"]);
-									$Report_Date=trim($_POST["Report_Date"]);
-									$Fix_Date=trim($_POST["Fix_Date"]);
-									$search_results="SELECT * FROM master2 WHERE Bug_Type = '$Bug_Type' or Regression = '$Regression' or Status = '$Status' or Report_Date = '$Report_Date' or Fix_Date = '$Fix_Date' order by Report_Date";									
-								}
-							  if (count($search_results) > 0) { foreach ($search_results as $r) {
-								echo " <tr>
+					if (!isset($_POST["Bug_Type"])&&!isset($_POST["Regression"])&&!isset($_POST["Status"])&&!isset($_POST["Report_Date"])&&!isset($_POST["Fix_Date"]))
+						$search_results = "SELECT * FROM master2 order by Report_Date;";
+					else {
+						$Bug_Type=trim($_POST["Bug_Type"]);
+						$Regression=trim($_POST["Regression"]);
+						$Status=trim($_POST["Status"]);
+						$Report_Date=trim($_POST["Report_Date"]);
+						$Fix_Date=trim($_POST["Fix_Date"]);
+						$search_results="SELECT * FROM master2 WHERE Bug_Type = '$Bug_Type' or Regression = '$Regression' or Status = '$Status' or Report_Date = '$Report_Date' or Fix_Date = '$Fix_Date' order by Report_Date";									
+					}
+				  if (count($search_results) > 0) { foreach ($search_results as $r) {
+					echo " <tr>
                                 <td class='name'>" . $row["_record_number"] . "</td>
                                 <td>" . $row["Bug Type"] . "</td>
                                 <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
