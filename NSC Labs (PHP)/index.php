@@ -1,3 +1,24 @@
+<?php
+	$search_error = '';
+	$search_result='';
+	if(isset($_POST['search']))
+	{
+		if(!empty($_POST['search']))
+		{
+			$search = $_POST['search'];
+			$search_database = $con->prepare("select * from master2 where Bug Type like '%$search%' or Regressed or not like '%$search%' or Status (Verified or Fixed) like '%$search%' or Report Date like '%$search%' or Fixing Date like '%$search%'");
+			$search_database->execute();
+			$search_result = $search_database->fetchAll(PDO::FETCH_ASSOC);
+			//print $search_result
+			 
+		}
+		else
+		{
+			$search_error = "Please enter the information in the search bar above";
+		}
+		
+	}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,50 +68,10 @@
                 <div class="left">
                     <div class="left_search">
                         <form action="index.php" method="post">
-							<img src="images/search.png" alt=""/>
-							<input type="text" placeholder="Search bugs..." size="60" id="myInput"/>
-							<input type="submit" value="Search" />
-						</form>
-						<?php
-							if (isset($_POST["search"])) {
-							  $servername = "sql300.epizy.com"; // change to sql300.epizy.com
-								$username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
-								$password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
-								$database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
-
-								// create a connection
-								$connection = new mysqli($servername, $username, $password, $database);
-
-								// check connection
-								if ($connection->connect_error) {
-									die("connection failed: " . $connection->connect_error);
-								}
-
-								if (!isset($_POST["Bug_Type"])&&!isset($_POST["Regression"])&&!isset($_POST["Status"])&&!isset($_POST["Report_Date"])&&!isset($_POST["Fix_Date"]))
-									$search_results = "SELECT * FROM master2 order by Report_Date;";
-								else {
-									$Bug_Type=trim($_POST["Bug_Type"]);
-									$Regression=trim($_POST["Regression"]);
-									$Status=trim($_POST["Status"]);
-									$Report_Date=trim($_POST["Report_Date"]);
-									$Fix_Date=trim($_POST["Fix_Date"]);
-									$search_results="SELECT * FROM master2 WHERE Bug_Type = '$Bug_Type' or Regression = '$Regression' or Status = '$Status' or Report_Date = '$Report_Date' or Fix_Date = '$Fix_Date' order by Report_Date";									
-								}
-							  if (count($search_results) > 0) { foreach ($search_results as $r) {
-								echo " <tr>
-                                <td class='name'>" . $row["_record_number"] . "</td>
-                                <td>" . $row["Bug Type"] . "</td>
-                                <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
-                                <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
-                                <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
-                                <td>" . $row["Report Date"] . "</td>
-                                <td>" . $row["Fixing Date"] . "</td>
-                                ";
-							  }} else { echo "No results found"; }
-							}
-						?>
+				<img src="images/search.png" alt=""/>
+				<input type="text" placeholder="Search bugs..." size="60" id="myInput"/>
+				<input type="submit" value="search" />
+			</form>
                     </div>
                 </div>
 
@@ -157,7 +138,30 @@
                                 <td>" . $row["Fixing Date"] . "</td>
                                 ";
                             }
+			    
+				// search results in table form
+				if(!$search_result) {
+					echo '<tr>No data found</tr>';
+				 }
+				 else{
+					foreach($search_result)
+					{
+						?>
+					<tr>
+						<td><?php echo $value['Bug Type'];?></td>
+						<td><?php echo $value['Bug Input'];?></td>
+						<td><?php echo $value['Bug Commit'];?></td>
+						<td><?php echo $value['Bug-fixing Commit'];?></td>
+						<td><?php echo $value['Regressed or not'];?></td>
+						<td><?php echo $value['Status (Verified or Fixed)'];?></td>
+						<td><?php echo $value['Report Date'];?></td>
+						<td><?php echo $value['Fixing Date'];?></td>
+					</tr>
 
+						<?php
+					}
+
+				 }
                         ?>
                     </tbody>
                     <script src="script.js"></script>
