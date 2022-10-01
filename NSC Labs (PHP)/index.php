@@ -48,12 +48,12 @@
                     <div class="left_search">
                         <form action="index.php" method="post">
 				<img src="images/search.png" alt=""/>
-				<input type="text" placeholder="Search bugs..." size="60" id="myInput"/>
+				<input type="text" placeholder="Search bugs..." size="60" name="myInput" pattern="[A-Za-z0-9]+"/>
 				<input type="submit" value="Search" />
 			</form>
 			<?php
-				if (isset($_POST["search"])) {
-				  $servername = "sql300.epizy.com"; // change to sql300.epizy.com
+				if (isset($_POST["myInput"])) {
+				  	$servername = "sql300.epizy.com"; // change to sql300.epizy.com
 					$username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
 					$password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
 					$database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
@@ -78,16 +78,16 @@
 					}
 				  if (count($search_results) > 0) { foreach ($search_results as $r) {
 					echo " <tr>
-                                <td class='name'>" . $row["_record_number"] . "</td>
-                                <td>" . $row["Bug Type"] . "</td>
-                                <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
-                                <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
-                                <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
-                                <td>" . $row["Report Date"] . "</td>
-                                <td>" . $row["Fixing Date"] . "</td>
-                                ";
+					<td class='name'>" . $row["_record_number"] . "</td>
+					<td>" . $row["Bug Type"] . "</td>
+					<td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
+					<td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
+					<td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
+					<td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
+					<td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
+					<td>" . $row["Report Date"] . "</td>
+					<td>" . $row["Fixing Date"] . "</td>
+					";
 							  }} else { echo "No results found"; }
 							}
 						?>
