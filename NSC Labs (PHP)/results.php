@@ -35,7 +35,7 @@
         <section id="interface">
             <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
                 <div class="left">
-                    <h1>DATABASE</h1>
+                    <h1>SEARCH RESULTS</h1>
                 </div>
                 <div class="right_logo">
                     <img src="images/logo.jpg" alt="">
@@ -48,11 +48,11 @@
                     <div class="left_search">
                         <form action="index.php" method="post">
 				<img src="images/search.png" alt=""/>
-				<input type="text" placeholder="Search bugs..." size="60" name="myInput" pattern="[A-Za-z0-9]+"/>
+				<input type="text" placeholder="Search for more bugs..." size="60" name="myInput" pattern="[A-Za-z0-9]+"/>
 				<input type="submit" value="Search" />
 			</form>
 			<?php
-				if (isset($_POST["myInput"])) {   header("Location: results.php")
+				if (isset($_POST["myInput"])) {
 				  	$servername = "sql300.epizy.com"; // change to sql300.epizy.com
 					$username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
 					$password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
@@ -67,8 +67,7 @@
 					}
 
 					if (!isset($_POST["Bug_Type"])&&!isset($_POST["Regression"])&&!isset($_POST["Status"])&&!isset($_POST["Report_Date"])&&!isset($_POST["Fix_Date"]))
-          header("Location: results.php")
-          	$search_results = "SELECT * FROM master2 order by Report_Date;";
+						$search_results = "SELECT * FROM master2 order by Report_Date;";
 					else {
 						$Bug_Type=trim($_POST["Bug_Type"]);
 						$Regression=trim($_POST["Regression"]);
@@ -94,19 +93,6 @@
 						?>
                     </div>
                 </div>
-
-                <!-- drop down box -->
-                <div class="right_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
-                    <div include="form-input-select()" class="select_box">
-                        <select required><option value="" hidden>Sort by... </option>
-                          <option value="1">Newest</option>
-                          <option value="2">Oldest</option>
-                          <option value="3">Type</option>
-                          <option value="4">Regression</option>
-                        </select>
-                      </div>
-                </div>
-            </div>
 
             <!-- table with dummy data -->
             <div class="container" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
