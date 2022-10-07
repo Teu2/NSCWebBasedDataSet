@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +39,7 @@
                     <h1>DATABASE</h1>
                 </div>
                 <div class="right_logo">
-                    <img src="images/logo.jpg" alt="">
+                    <img src="images/logo.jpg" alt="">  
                 </div>
             </div>
 
@@ -109,7 +110,7 @@
 
                             if(isset($_GET['search'])){
                                 $filteredValues = $_GET['search'];
-                                $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number) LIKE '%$filteredValues%' ";
+                                $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number, bugType, regressedOrNot, bugStatus, reportDate, fixingDate) LIKE '%$filteredValues%' ";
                                 $query_run = mysqli_query($connection, $query);
 
                                 if (mysqli_num_rows($query_run) > 0 || empty($_GET['search'])) {
@@ -119,14 +120,14 @@
                                     while ($row = $results->fetch_assoc()) {
                                         echo " <tr>
                                         <td class='name'>" . $row["_record_number"] . "</td>
-                                        <td>" . $row["Bug Type"] . "</td>
-                                        <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
-                                        <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
-                                        <td>" . $row["Report Date"] . "</td>
-                                        <td>" . $row["Fixing Date"] . "</td>
+                                        <td>" . $row["bugType"] . "</td>
+                                        <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
+                                        <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
+                                        <td>" . $row["reportDate"] . "</td>
+                                        <td>" . $row["fixingDate"] . "</td>
                                         ";
                                     }
                                 } else {
@@ -140,15 +141,15 @@
                                 while ($row = $result->fetch_assoc()) {
                                     echo " <tr>
                                     <td class='name'>" . $row["_record_number"] . "</td>
-                                    <td>" . $row["Bug Type"] . "</td>
-                                    <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
-                                    <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                    <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                    <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
-                                    <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
-                                    <td>" . $row["Report Date"] . "</td>
-                                    <td>" . $row["Fixing Date"] . "</td>
-                                    ";
+                                    <td>" . $row["bugType"] . "</td>
+                                    <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
+                                    <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
+                                    <td>" . $row["reportDate"] . "</td>
+                                    <td>" . $row["fixingDate"] . "</td>
+                                    "; 
                                 }
                             }
                         ?>
