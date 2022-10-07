@@ -24,7 +24,6 @@
                 <ul>
                     <li><div class="nav_hover"><a href="index.php"><img src="images/home.png" alt="">Home</a></div></li>
                     <div class="current"><li><div class="nav_hover"><a href="about.php"><img src="images/about.png" alt="">About</a></div></li></div>
-                    <li><div class="nav_hover"><a href="search.php"><img src="./images/search.png" alt="">Search</a></div></li>
                     <li><div class="nav_hover"><a href="http://nsclab.org/nsclab/" target="_blank"><img src="images/domain.png" alt="">NSCLab</a></div></li>
                 </ul>
             </div>
