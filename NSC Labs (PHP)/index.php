@@ -14,7 +14,7 @@
         <!-- side menu section -->
         <section id="side_menu" data-aos="fade-right" data-aos-duration="700">
             <div class="bug_logo">
-                <img src="images/Bug Hosting.svg" alt="bug logo">
+                <img src="images/Bug Hosting.png" alt="bug logo">
                 <div id="header_text">
                     <h2>NSC Dataset</h2>
                     <p>Ver 2.0.1</p>
@@ -33,8 +33,8 @@
 
         <!-- heading section -->
         <section id="interface">
-            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
-                <div class="left">
+            <div class="search_heading" data-aos="fade-down" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
+                <div class="left"> 
                     <h1>DATABASE</h1>
                 </div>
                 <div class="right_logo">
@@ -43,57 +43,22 @@
             </div>
 
             <!-- search bar -->
-            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
-                <div class="left">
-                    <div class="left_search">
-                        <form action="index.php" method="post">
-				<img src="images/search.png" alt=""/>
-				<input type="text" placeholder="Search bugs..." size="60" name="myInput" pattern="[A-Za-z0-9]+"/>
-				<input type="submit" value="Search" />
-			</form>
-			<?php
-				if (isset($_POST["myInput"])) {   header("Location: results.php")
-				  	$servername = "sql300.epizy.com"; // change to sql300.epizy.com
-					$username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
-					$password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
-					$database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
-
-					// create a connection
-					$connection = new mysqli($servername, $username, $password, $database);
-
-					// check connection
-					if ($connection->connect_error) {
-						die("connection failed: " . $connection->connect_error);
-					}
-
-					if (!isset($_POST["Bug_Type"])&&!isset($_POST["Regression"])&&!isset($_POST["Status"])&&!isset($_POST["Report_Date"])&&!isset($_POST["Fix_Date"]))
-          header("Location: results.php")
-          	$search_results = "SELECT * FROM master2 order by Report_Date;";
-					else {
-						$Bug_Type=trim($_POST["Bug_Type"]);
-						$Regression=trim($_POST["Regression"]);
-						$Status=trim($_POST["Status"]);
-						$Report_Date=trim($_POST["Report_Date"]);
-						$Fix_Date=trim($_POST["Fix_Date"]);
-						$search_results="SELECT * FROM master2 WHERE Bug_Type = '$Bug_Type' or Regression = '$Regression' or Status = '$Status' or Report_Date = '$Report_Date' or Fix_Date = '$Fix_Date' order by Report_Date";
-					}
-				  if (count($search_results) > 0) { foreach ($search_results as $r) {
-					echo " <tr>
-					<td class='name'>" . $row["_record_number"] . "</td>
-					<td>" . $row["Bug Type"] . "</td>
-					<td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
-					<td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
-					<td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
-					<td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
-					<td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
-					<td>" . $row["Report Date"] . "</td>
-					<td>" . $row["Fixing Date"] . "</td>
-					";
-							  }} else { echo "No results found"; }
-							}
-						?>
-                    </div>
+            <div class="search_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400"> 
+                <div class="left"> 
+                    <form action="" method="GET">
+                        <div class="left_search">
+                            <img src="images/search.png" alt="">
+                            <input type="text" placeholder="Search bugs..." size="60" id="myInput" name="search" value="<?php if(isset($_GET['search'])){
+                                    echo $_GET['search'];
+                                } ?>">
+                            <button type="submit" class="search_button" value="">Search</button>
+                        </div>
+                    </form>
                 </div>
+
+                <?php 
+                    
+                ?>
 
                 <!-- drop down box -->
                 <div class="right_sort" data-aos="fade-in" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
@@ -139,39 +104,66 @@
                                 die("connection failed: " . $connection->connect_error);
                             }
 
-                            $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine, keep the same as master2 for now.
-                            $result = $connection->query($sqlQuery);
-
                             $link = "LINK";
                             $download = "DOWNLOAD";
 
-                            while ($row = $result->fetch_assoc()) {
-                                echo " <tr>
-                                <td class='name'>" . $row["_record_number"] . "</td>
-                                <td>" . $row["Bug Type"] . "</td>
-                                <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
-                                <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
-                                <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
-                                <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
-                                <td>" . $row["Report Date"] . "</td>
-                                <td>" . $row["Fixing Date"] . "</td>
-                                ";
-                            }
+                            if(isset($_GET['search'])){
+                                $filteredValues = $_GET['search'];
+                                $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number) LIKE '%$filteredValues%' ";
+                                $query_run = mysqli_query($connection, $query);
 
+                                if (mysqli_num_rows($query_run) > 0 || empty($_GET['search'])) {
+
+                                    $results = $connection->query($query);
+
+                                    while ($row = $results->fetch_assoc()) {
+                                        echo " <tr>
+                                        <td class='name'>" . $row["_record_number"] . "</td>
+                                        <td>" . $row["Bug Type"] . "</td>
+                                        <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
+                                        <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
+                                        <td>" . $row["Report Date"] . "</td>
+                                        <td>" . $row["Fixing Date"] . "</td>
+                                        ";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='9'>No Records Found</td></tr>";
+                                }
+
+                            } else {
+                                $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine
+                                $result = $connection->query($sqlQuery);
+
+                                while ($row = $result->fetch_assoc()) {
+                                    echo " <tr>
+                                    <td class='name'>" . $row["_record_number"] . "</td>
+                                    <td>" . $row["Bug Type"] . "</td>
+                                    <td class='link'><a href='". $row["Bug Input"] ."' target='blank'>" . $download .  "<a></td>
+                                    <td class='link'><a href='". $row["Bug Commit"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td class='link'><a href='". $row["Bug-fixing Commit"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td class='link'><a href='". $row["Regressed or not"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td><p class='fixed'>" . $row["Status (Verified or Fixed)"] . "</p></td>
+                                    <td>" . $row["Report Date"] . "</td>
+                                    <td>" . $row["Fixing Date"] . "</td>
+                                    ";
+                                }
+                            }
                         ?>
                     </tbody>
                     <script src="script.js"></script>
                 </table>
             </div>
-
+            
             <!-- this div let's us browse 1000+ records in pages instead of scrolling for eternity -->
-            <div class="container">
-                <div id="pagination-wrapper"></div>
+            <div class="container"> 
+                <div id="pagination-wrapper"></div> 
             </div>
 
             <!-- <script src="./scripts/tablesearch.js"></script> -->
-        </section>
+        </section> <!-- end of heading section-->
 
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
