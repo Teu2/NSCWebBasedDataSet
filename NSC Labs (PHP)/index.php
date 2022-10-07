@@ -52,7 +52,7 @@
                             <input type="text" placeholder="Search bugs..." size="60" id="myInput" name="search" value="<?php if(isset($_GET['search'])){
                                     echo $_GET['search'];
                                 } ?>">
-                            <button type="submit" class="search_button" value="">Search</button>
+                            <button type="submit" id="search_button" value="">Search</button>
                         </div>
                     </form>
                 </div>
