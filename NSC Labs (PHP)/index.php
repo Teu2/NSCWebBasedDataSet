@@ -123,9 +123,15 @@
                                         <td>" . $row["bugType"] . "</td>
                                         <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
                                         <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
+                                        <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>";
+                                        
+                                        if ($row["regressedOrNot"] === "Not") {
+                                            echo "<td> Not </td>";
+                                        } else {
+                                            echo "<td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>";
+                                        }
+                                        
+                                        echo "<td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
                                         <td>" . $row["reportDate"] . "</td>
                                         <td>" . $row["fixingDate"] . "</td>
                                         ";
@@ -140,16 +146,22 @@
 
                                 while ($row = $result->fetch_assoc()) {
                                     echo " <tr>
-                                    <td class='name'>" . $row["_record_number"] . "</td>
-                                    <td>" . $row["bugType"] . "</td>
-                                    <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
-                                    <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
-                                    <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>
-                                    <td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>
-                                    <td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
-                                    <td>" . $row["reportDate"] . "</td>
-                                    <td>" . $row["fixingDate"] . "</td>
-                                    "; 
+                                        <td class='name'>" . $row["_record_number"] . "</td>
+                                        <td>" . $row["bugType"] . "</td>
+                                        <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
+                                        <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
+                                        <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>";
+                                        
+                                        if ($row["regressedOrNot"] === "Not") {
+                                            echo "<td> Not </td>";
+                                        } else {
+                                            echo "<td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>";
+                                        }
+                                        
+                                        echo "<td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
+                                        <td>" . $row["reportDate"] . "</td>
+                                        <td>" . $row["fixingDate"] . "</td>
+                                        ";
                                 }
                             }
                         ?>
