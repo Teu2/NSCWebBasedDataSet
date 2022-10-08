@@ -114,28 +114,8 @@
                                 $query_run = mysqli_query($connection, $query);
 
                                 if (mysqli_num_rows($query_run) > 0 || empty($_GET['search'])) {
-
                                     $results = $connection->query($query);
-
-                                    while ($row = $results->fetch_assoc()) {
-                                        echo " <tr>
-                                        <td class='name'>" . $row["_record_number"] . "</td>
-                                        <td>" . $row["bugType"] . "</td>
-                                        <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
-                                        <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>";
-                                        
-                                        if ($row["regressedOrNot"] === "Not") {
-                                            echo "<td> Not </td>";
-                                        } else {
-                                            echo "<td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>";
-                                        }
-                                        
-                                        echo "<td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
-                                        <td>" . $row["reportDate"] . "</td>
-                                        <td>" . $row["fixingDate"] . "</td>
-                                        ";
-                                    }
+                                    createTable($results);
                                 } else {
                                     echo "<tr><td colspan='9'>No Records Found</td></tr>";
                                 }
@@ -143,25 +123,33 @@
                             } else {
                                 $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine
                                 $result = $connection->query($sqlQuery);
+                                createTable($result);
+                                }
+                            }
+                        ?>
+                        <?php
+                            function createTable($resultRows){
+                                $download = "DOWNLOAD";
+                                $link = "LINK";
 
-                                while ($row = $result->fetch_assoc()) {
+                                while ($row = $resultRows->fetch_assoc()) {
                                     echo " <tr>
-                                        <td class='name'>" . $row["_record_number"] . "</td>
-                                        <td>" . $row["bugType"] . "</td>
-                                        <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
-                                        <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
-                                        <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>";
-                                        
-                                        if ($row["regressedOrNot"] === "Not") {
-                                            echo "<td> Not </td>";
-                                        } else {
-                                            echo "<td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>";
-                                        }
-                                        
-                                        echo "<td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
-                                        <td>" . $row["reportDate"] . "</td>
-                                        <td>" . $row["fixingDate"] . "</td>
-                                        ";
+                                    <td class='name'>" . $row["_record_number"] . "</td>
+                                    <td>" . $row["bugType"] . "</td>
+                                    <td class='link'><a href='". $row["bugInput"] ."' target='blank'>" . $download .  "<a></td>
+                                    <td class='link'><a href='". $row["bugCommit"] ."' target='blank'>" . $link .  "<a></td>
+                                    <td class='link'><a href='". $row["bugFixingCommit"] ."' target='blank'>" . $link .  "<a></td>";
+                                    
+                                    if ($row["regressedOrNot"] === "Not") {
+                                        echo "<td> Not </td>";
+                                    } else {
+                                        echo "<td class='link'><a href='". $row["regressedOrNot"] ."' target='blank'>" . $link .  "<a></td>";
+                                    }
+                                    
+                                    echo "<td><p class='fixed'>" . $row["bugStatus"] . "</p></td>
+                                    <td>" . $row["reportDate"] . "</td>
+                                    <td>" . $row["fixingDate"] . "</td>
+                                    ";
                                 }
                             }
                         ?>
