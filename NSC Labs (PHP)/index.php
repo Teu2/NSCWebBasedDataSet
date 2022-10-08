@@ -116,12 +116,6 @@
                                 $filteredValues = str_replace(" ","", $filteredValues);
 
                                 switch (true) {
-                                    case  is_numeric($searchedItem): 
-                                        //echo "<br/><b>string contains: </b> <br/>".$searchedItem;
-                                        $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number) LIKE '%$filteredValues%'";
-                                        runQuery($connection, $query); 
-                                        break;
-
                                     case stristr($searchedItem, 'report') || stristr($searchedItem, 'Report'):
                                         $query = "SELECT * FROM `master2` WHERE CONCAT(reportDate) LIKE '%$filteredValues%'";
                                         runQuery($connection, $query);
@@ -132,9 +126,26 @@
                                         runQuery($connection, $query);
                                         break;
 
+                                    case searchIsDate($searchedItem): 
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(reportDate, fixingDate) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query); break;
+
+                                    case  is_numeric($searchedItem): 
+                                        //echo "<br/><b>string contains: </b> <br/>".$searchedItem;
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query); 
+                                        break;
+                                        
                                     case stristr($searchedItem, 'security') || stristr($searchedItem, 'bug-security'): 
-                                        $filteredValues = str_replace("bug","", $filteredValues); 
+                                        $filteredValues = str_replace("bug","", $filteredValues);
+                                        $filteredValues = str_replace("Bug","", $filteredValues);  
                                         $query = "SELECT * FROM `master2` WHERE CONCAT(bugType) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query);
+                                        break;
+
+                                    case stristr($searchedItem, 'bug'): 
+                                        //$query = "SELECT * FROM `master2` WHERE CONCAT(bugType) LIKE '%$filteredValues%'";
+                                        $query = "SELECT bugType FROM `master2` WHERE `bugType` LIKE `Bug`";
                                         runQuery($connection, $query);
                                         break;
 
@@ -149,6 +160,8 @@
                                         $result = $connection->query($sqlQuery);
                                         createTable($result);
                                         break;
+
+                                    default: echo "<tr><td colspan='9'>No Records Found</td></tr>"; break;
                                 }
 
                             } else {
@@ -197,6 +210,12 @@
                                     createTable($results);
                                 } else {
                                     echo "<tr><td colspan='9'>No Records Found</td></tr>";
+                                }
+                            }
+
+                            function searchIsDate($str){
+                                if (substr_count($str, '-') > 1){
+                                    return true;
                                 }
                             }
                         ?>
