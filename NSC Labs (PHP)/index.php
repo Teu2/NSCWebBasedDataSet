@@ -15,7 +15,7 @@
         <!-- side menu section -->
         <section id="side_menu" data-aos="fade-right" data-aos-duration="700">
             <div class="bug_logo">
-                <img src="images/Bug Hosting.png" alt="bug logo">
+                <img src="images/Bug Hosting.svg" alt="bug logo">
                 <div id="header_text">
                     <h2>NSC Dataset</h2>
                     <p>Ver 2.0.1</p>
@@ -96,7 +96,7 @@
                             $username = "epiz_32617535"; //change credentials to infinity free login for cpanel epiz_32617535
                             $password = "o7NWrwBIBBjPs"; //change credentials to infinity free login for cpanel o7NWrwBIBBjPs
                             $database = "epiz_32617535_master2"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change nscbugdataset to the database name on your machine, change to epiz_32617535_master2
-
+                            
                             // create a connection
                             $connection = new mysqli($servername, $username, $password, $database);
 
@@ -109,22 +109,52 @@
                             $download = "DOWNLOAD";
 
                             if(isset($_GET['search'])){
-                                $filteredValues = $_GET['search'];
-                                $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number, bugType, regressedOrNot, bugStatus, reportDate, fixingDate) LIKE '%$filteredValues%' ";
-                                $query_run = mysqli_query($connection, $query);
 
-                                if (mysqli_num_rows($query_run) > 0 || empty($_GET['search'])) {
-                                    $results = $connection->query($query);
-                                    createTable($results);
-                                } else {
-                                    echo "<tr><td colspan='9'>No Records Found</td></tr>";
+                                $searchedItem = $_GET['search'];
+                                $filteredValues = $_GET['search'];
+                                $filteredValues = cleanSearchString($searchedItem);
+                                $filteredValues = str_replace(" ","", $filteredValues);
+
+                                switch (true) {
+                                    case  is_numeric($searchedItem): 
+                                        //echo "<br/><b>string contains: </b> <br/>".$searchedItem;
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(_record_number) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query); 
+                                        break;
+
+                                    case stristr($searchedItem, 'report') || stristr($searchedItem, 'Report'):
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(reportDate) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query);
+                                        break;
+
+                                    case stristr($searchedItem, 'fixing') || stristr($searchedItem, 'fix'):
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(fixingDate) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query);
+                                        break;
+
+                                    case stristr($searchedItem, 'security') || stristr($searchedItem, 'bug-security'): 
+                                        $filteredValues = str_replace("bug","", $filteredValues); 
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(bugType) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query);
+                                        break;
+
+                                    case stristr($searchedItem, 'not') || stristr($searchedItem, 'not regressed'): 
+                                        $filteredValues = str_replace("regressed","", $filteredValues);
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(regressedOrNot) LIKE '%$filteredValues%'";
+                                        runQuery($connection, $query);
+                                        break;
+
+                                    case empty($_GET['search']) : 
+                                        $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine
+                                        $result = $connection->query($sqlQuery);
+                                        createTable($result);
+                                        break;
                                 }
 
                             } else {
                                 $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine
                                 $result = $connection->query($sqlQuery);
                                 createTable($result);
-                                }
                             }
                         ?>
                         <?php
@@ -150,6 +180,23 @@
                                     <td>" . $row["reportDate"] . "</td>
                                     <td>" . $row["fixingDate"] . "</td>
                                     ";
+                                }
+                            }
+
+                            function cleanSearchString($str){
+                                $resultStr = str_replace( array("report", "Report", "fix", "Fix", "ing", "date", "Date"), '', $str);
+                                return $resultStr;
+                            }
+
+                            function runQuery($connection, $query){
+                                $query_run = mysqli_query($connection, $query);
+                                // echo "<br/><b>query: </b> <br/>".$query;
+
+                                if (mysqli_num_rows($query_run) > 0 || empty($_GET['search'])) { 
+                                    $results = $connection->query($query);
+                                    createTable($results);
+                                } else {
+                                    echo "<tr><td colspan='9'>No Records Found</td></tr>";
                                 }
                             }
                         ?>
