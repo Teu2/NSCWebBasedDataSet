@@ -65,6 +65,8 @@
                                 <option value="reportDateOld" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Report Date (Oldest)</option>
                                 <option value="fixDateNew" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Fix Date (Newest)</option>
                                 <option value="fixDateOld" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Fix Date (Oldest)</option>
+                                <option value="bugNumberHighest" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Bug Number (Highest)</option>
+                                <option value="bugNumberLowest" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Fix Date (Lowest)</option>
                             </select>
                         </form>
                       </div>
@@ -242,6 +244,14 @@
 
                                         case "fixDateOld": 
                                             $query = "SELECT * FROM `master2` ORDER BY fixingDate asc"; 
+                                            runQuery($connection, $query); break;
+
+                                        case "bugNumberHighest": 
+                                            $query = "SELECT * FROM `master2` ORDER BY _record_number desc"; 
+                                            runQuery($connection, $query); break;
+
+                                        case "bugNumberLowest": 
+                                            $query = "SELECT * FROM `master2` ORDER BY _record_number asc"; 
                                             runQuery($connection, $query); break;
                                     }
                                 }
