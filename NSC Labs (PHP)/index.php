@@ -154,6 +154,12 @@
                                         $query = "SELECT * FROM `master2` WHERE CONCAT(regressedOrNot) LIKE '%$filteredValues%'";
                                         runQuery($connection, $query);
                                         break;
+                                    
+                                    case stristr($searchedItem, 'regressed') || stristr($searchedItem, 'Regressed'): 
+                                        $filteredValues = str_replace("regressed","", $filteredValues);
+                                        $query = "SELECT * FROM `master2` WHERE CONCAT(regressedOrNot) NOT LIKE 'Not'";
+                                        runQuery($connection, $query);
+                                        break;
 
                                     case empty($_GET['search']) : 
                                         $sqlQuery  = "SELECT * FROM `master2`"; // IMPORTANT!!!!!!!!!!!!!!!!!!!!!!! change master to table name on your machine
