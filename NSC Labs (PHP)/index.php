@@ -66,7 +66,7 @@
                                 <option value="fixDateNew" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Fix Date (Newest)</option>
                                 <option value="fixDateOld" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Fix Date (Oldest)</option>
                                 <option value="bugNumberHighest" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Bug Number (Highest)</option>
-                                <option value="bugNumberLowest" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Fix Date (Lowest)</option>
+                                <option value="bugNumberLowest" <?php if(isset($_GET['sorted'])) {echo $_GET['sorted'];} ?> >Bug Number (Lowest)</option>
                             </select>
                         </form>
                       </div>
@@ -145,7 +145,7 @@
 
                                     case stristr($searchedItem, 'bug') || stristr($searchedItem, 'Bug'): 
                                         $filteredValues = str_replace("+","", $filteredValues);
-                                        $query = "SELECT * FROM `master2` WHERE binary bugType = `%$filteredValues%`";
+                                        $query = "SELECT * FROM `master2` WHERE BINARY bugType = 'Bug'";
                                         runQuery($connection, $query);
                                         break;
 
