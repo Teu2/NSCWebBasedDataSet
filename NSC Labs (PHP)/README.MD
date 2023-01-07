@@ -1,7 +1,6 @@
 # DEPLOYMENT
 Prototype Link: https://nsclabdataset.netlify.app/index.html
 Final Version Deployment: http://nscdataset.infinityfreeapp.com/index.php
-if it looks weird just zoom out until it doesn't, the client said he didn't want it responsive.
 
 ## Contributors
 - Atul Sharma (102445441)
